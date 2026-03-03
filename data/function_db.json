@@ -107,7 +107,7 @@
     "history": [],
     "connection_points": [
       "MenuWorld",
-      "SubViewport",
+      "DomeViewport",
       "Scriptura"
     ]
   },

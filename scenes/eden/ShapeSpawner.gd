@@ -7,6 +7,10 @@ var law_mutex := Mutex.new()
 func _ready() -> void:
 	Scriptura.law_changed.connect(_on_law_changed)
 
+func _exit_tree() -> void:
+	if spawn_thread and spawn_thread.is_alive():
+		spawn_thread.wait_to_finish()
+
 func request_spawn(shape_parent: Node3D) -> void:
 	if spawn_thread and spawn_thread.is_alive():
 		return
@@ -17,6 +21,7 @@ func spawn_alive_shape(shape_parent: Node3D) -> void:
 	var mesh := MeshInstance3D.new()
 	mesh.mesh = BoxMesh.new()
 	mesh.name = "AliveShape"
+	mesh.position = Vector3(0, 0.3, 0)
 	shape_parent.add_child(mesh)
 	var tween := create_tween()
 	tween.set_loops()
@@ -26,6 +31,7 @@ func spawn_dead_shape(shape_parent: Node3D) -> void:
 	var mesh := MeshInstance3D.new()
 	mesh.mesh = SphereMesh.new()
 	mesh.name = "DeadShape"
+	mesh.position = Vector3(0, 0.2, 0)
 	shape_parent.add_child(mesh)
 
 func _spawn_worker(shape_parent: Node3D) -> void:
@@ -39,7 +45,9 @@ func _apply_spawn(life_state: String, shape_parent: Node3D) -> void:
 		spawn_alive_shape(shape_parent)
 	else:
 		spawn_dead_shape(shape_parent)
+	if spawn_thread and spawn_thread.is_alive():
+		spawn_thread.wait_to_finish()
 
-func _on_law_changed(law_name: String, _new_state: String) -> void:
+func _on_law_changed(law_name: String, new_state: String) -> void:
 	if law_name == "life":
-		Scriptura.push_message("shape_spawner synced to life law", "ShapeSpawner")
+		Scriptura.push_message("[LAW:life=%s]" % new_state, "ShapeSpawner")

@@ -14,12 +14,14 @@ func _ready() -> void:
 func send_message(content: String, agent_mode: String = "default") -> void:
 	var payload := build_payload(content, agent_mode)
 	var body := JSON.stringify(payload)
-	http.request(
+	var err := http.request(
 		"%s/message" % SERVER_URL,
 		["Content-Type: application/json"],
 		HTTPClient.METHOD_POST,
 		body
 	)
+	if err != OK:
+		Scriptura.push_message("Bridge request dispatch failed: %s" % err, "ConsciousnessBridge")
 
 func build_payload(content: String, mode: String) -> Dictionary:
 	var start := maxi(Scriptura.message_log.size() - 10, 0)
@@ -28,12 +30,14 @@ func build_payload(content: String, mode: String) -> Dictionary:
 		"messages": Scriptura.message_log.slice(start, Scriptura.message_log.size()),
 		"suffix": suffix_prompt,
 		"mode": mode,
-		"content": content
+		"content": content,
 	}
 
 func parse_response(body: String) -> void:
-	var tokens := Scriptura.parse_for_tokens(body)
-	for token in tokens:
+	var parsed := JSON.parse_string(body)
+	if typeof(parsed) == TYPE_DICTIONARY and parsed.has("content"):
+		body = str(parsed["content"])
+	for token in Scriptura.parse_for_tokens(body):
 		Scriptura.snap_function(token)
 	Scriptura.push_message(body, "agent")
 
