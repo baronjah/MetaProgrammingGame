@@ -297,5 +297,135 @@
         "snippet": "Scriptura"
       }
     }
+  },
+  "project_catalogue": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "ProjectCatalogue",
+    "script_id": "ProjectCatalogue",
+    "script_path": "res://autoload/ProjectCatalogue.gd",
+    "law_binding": "time",
+    "logic_A": "register_project",
+    "logic_B": "find_duplicates",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "ScriptRegistry",
+      "PathResolver",
+      "ProjectCatalogue"
+    ],
+    "connections": {
+      "ScriptRegistry": {
+        "strategy": "autoload_direct",
+        "snippet": "ScriptRegistry"
+      },
+      "PathResolver": {
+        "strategy": "autoload_direct",
+        "snippet": "PathResolver"
+      },
+      "ProjectCatalogue": {
+        "strategy": "autoload_direct",
+        "snippet": "ProjectCatalogue"
+      }
+    }
+  },
+  "vessel_dome_manager": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "VesselDomeManager",
+    "script_id": "VesselDomeManager",
+    "script_path": "res://autoload/VesselDomeManager.gd",
+    "law_binding": "light",
+    "logic_A": "create_dome",
+    "logic_B": "close_dome",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "ProjectCatalogue",
+      "CursorEntity",
+      "VesselDomeManager"
+    ],
+    "connections": {
+      "ProjectCatalogue": {
+        "strategy": "autoload_direct",
+        "snippet": "ProjectCatalogue"
+      },
+      "CursorEntity": {
+        "strategy": "autoload_direct",
+        "snippet": "CursorEntity"
+      },
+      "VesselDomeManager": {
+        "strategy": "autoload_direct",
+        "snippet": "VesselDomeManager"
+      }
+    }
+  },
+  "cursor_entity": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "CursorEntity",
+    "script_id": "CursorEntity",
+    "script_path": "res://autoload/CursorEntity.gd",
+    "law_binding": "time",
+    "logic_A": "begin_drag",
+    "logic_B": "set_mode",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "CursorEntity",
+      "TheWeave",
+      "ProjectBrowser"
+    ],
+    "connections": {
+      "CursorEntity": {
+        "strategy": "autoload_direct",
+        "snippet": "CursorEntity"
+      },
+      "TheWeave": {
+        "strategy": "autoload_direct",
+        "snippet": "TheWeave"
+      },
+      "ProjectBrowser": {
+        "strategy": "cross_scene",
+        "target_scene": "res://scenes/browser/ProjectBrowser.tscn",
+        "snippet": "get_node('/root/ProjectBrowser')"
+      }
+    }
+  },
+  "the_weave": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "TheWeave",
+    "script_id": "TheWeave",
+    "script_path": "res://autoload/TheWeave.gd",
+    "law_binding": "gravity",
+    "logic_A": "build_from_function_db",
+    "logic_B": "clear_isolation",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "TheWeave",
+      "PathResolver",
+      "VesselDomeManager",
+      "CursorEntity"
+    ],
+    "connections": {
+      "TheWeave": {
+        "strategy": "autoload_direct",
+        "snippet": "TheWeave"
+      },
+      "PathResolver": {
+        "strategy": "autoload_direct",
+        "snippet": "PathResolver"
+      },
+      "VesselDomeManager": {
+        "strategy": "autoload_direct",
+        "snippet": "VesselDomeManager"
+      },
+      "CursorEntity": {
+        "strategy": "autoload_direct",
+        "snippet": "CursorEntity"
+      }
+    }
   }
 }

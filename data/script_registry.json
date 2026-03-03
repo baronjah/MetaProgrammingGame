@@ -118,5 +118,93 @@
     "scene_attachment": "res://scenes/browser/ProjectBrowser.tscn",
     "node_path_in_scene": "NodeTreePreview",
     "loaded": false
+  },
+  "ProjectCatalogue": {
+    "type": "autoload",
+    "path": "res://autoload/ProjectCatalogue.gd",
+    "class_name": "ProjectCatalogue",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": true
+  },
+  "CataloguePanel": {
+    "type": "scene_script",
+    "path": "res://scenes/browser/CataloguePanel.gd",
+    "class_name": "CataloguePanel",
+    "scene_attachment": "res://scenes/browser/ProjectBrowser.tscn",
+    "node_path_in_scene": "CataloguePanel",
+    "loaded": false
+  },
+  "VesselDomeManager": {
+    "type": "autoload",
+    "path": "res://autoload/VesselDomeManager.gd",
+    "class_name": "VesselDomeManager",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": true
+  },
+  "VesselDome": {
+    "type": "scene_script",
+    "path": "res://scenes/vessel/VesselDome.gd",
+    "class_name": "VesselDome",
+    "scene_attachment": "res://scenes/vessel/VesselDome.tscn",
+    "node_path_in_scene": ".",
+    "loaded": false
+  },
+  "CursorEntity": {
+    "type": "autoload",
+    "path": "res://autoload/CursorEntity.gd",
+    "class_name": "CursorEntity",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": true
+  },
+  "CursorVisual": {
+    "type": "scene_script",
+    "path": "res://scenes/cursor/CursorVisual.gd",
+    "class_name": "CursorVisual",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false
+  },
+  "ContextMenu": {
+    "type": "scene_script",
+    "path": "res://scenes/cursor/ContextMenu.gd",
+    "class_name": "ContextMenu",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false
+  },
+  "TheWeave": {
+    "type": "autoload",
+    "path": "res://autoload/TheWeave.gd",
+    "class_name": "TheWeave",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": true
+  },
+  "WeaveThread": {
+    "type": "class_named",
+    "path": "res://systems/weave_thread.gd",
+    "class_name": "WeaveThread",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false
+  },
+  "WeaveNode": {
+    "type": "scene_script",
+    "path": "res://scenes/weave/WeaveNode.gd",
+    "class_name": "WeaveNode",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false
+  },
+  "WeaveControls": {
+    "type": "scene_script",
+    "path": "res://scenes/weave/WeaveControls.gd",
+    "class_name": "WeaveControls",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false
   }
 }

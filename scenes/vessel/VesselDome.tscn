@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/vessel/VesselDome.gd" id="1"]
+
+[node name="VesselDome" type="Node3D"]
+script = ExtResource("1")
+
+[node name="DomeShell" type="MeshInstance3D" parent="."]
+mesh = SphereMesh.new()
+
+[node name="DomeLabel" type="Label3D" parent="."]
+text = "VesselDome"
+position = Vector3(0, 2.6, 0)
+
+[node name="HealthIndicator" type="MeshInstance3D" parent="."]
+mesh = TorusMesh.new()
+
+[node name="LayerContainer" type="Node3D" parent="."]
+
+[node name="LawPanel" type="Node3D" parent="."]
+position = Vector3(0, -1.2, 0)
+[node name="Label3D" type="Label3D" parent="LawPanel"]
+
+[node name="WeaveAnchor" type="Node3D" parent="."]
+position = Vector3(0, 0, 0)

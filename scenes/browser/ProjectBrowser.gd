@@ -122,3 +122,8 @@ func _entry_color(name: String, is_dir: bool) -> Color:
 	if name.ends_with(".json"):
 		return Color(1.0, 1.0, 1.0)
 	return Color(0.6, 0.6, 0.6)
+
+
+func open_catalogue_mode() -> void:
+	var _catalogue_access := PathResolver.generate_access_snippet("ProjectBrowser", "CataloguePanel")
+	$CataloguePanel.refresh_catalogue()

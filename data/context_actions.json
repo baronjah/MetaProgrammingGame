@@ -1,0 +1,26 @@
+{
+  "weave_node": [
+    "Inspect Script",
+    "Isolate in Weave",
+    "Open in Browser",
+    "Assign to Dome"
+  ],
+  "weave_thread": [
+    "Toggle Active",
+    "Remove",
+    "Change Style",
+    "Trace Path"
+  ],
+  "vessel_dome": [
+    "Add Project Layer",
+    "Close Dome",
+    "Focus",
+    "Export Comparison"
+  ],
+  "empty": [
+    "New Dome",
+    "Open Browser",
+    "Switch Cursor Mode",
+    "Open BabelTower"
+  ]
+}
