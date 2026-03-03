@@ -19,16 +19,31 @@
       "WorldState": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/WorldState')"
+        "snippet": "get_node('/root/WorldState')",
+        "valve_id": "valve_PhysicsMaster_to_WorldState",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "EntityBody": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/EntityBody')"
+        "snippet": "get_node('/root/EntityBody')",
+        "valve_id": "valve_PhysicsMaster_to_EntityBody",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "Scriptura": {
         "strategy": "autoload_direct",
-        "snippet": "Scriptura"
+        "snippet": "Scriptura",
+        "valve_id": "valve_PhysicsMaster_to_Scriptura",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -74,16 +89,31 @@
       "Spawner": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/Spawner')"
+        "snippet": "get_node('/root/Spawner')",
+        "valve_id": "valve_LifeMaster_to_Spawner",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "EntityBody": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/EntityBody')"
+        "snippet": "get_node('/root/EntityBody')",
+        "valve_id": "valve_LifeMaster_to_EntityBody",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "Scriptura": {
         "strategy": "autoload_direct",
-        "snippet": "Scriptura"
+        "snippet": "Scriptura",
+        "valve_id": "valve_LifeMaster_to_Scriptura",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -117,16 +147,31 @@
       "WorldState": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/WorldState')"
+        "snippet": "get_node('/root/WorldState')",
+        "valve_id": "valve_TimeMaster_to_WorldState",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "Timeline": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/Timeline')"
+        "snippet": "get_node('/root/Timeline')",
+        "valve_id": "valve_TimeMaster_to_Timeline",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "Scriptura": {
         "strategy": "autoload_direct",
-        "snippet": "Scriptura"
+        "snippet": "Scriptura",
+        "valve_id": "valve_TimeMaster_to_Scriptura",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -160,16 +205,31 @@
       "Environment": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/Environment')"
+        "snippet": "get_node('/root/Environment')",
+        "valve_id": "valve_LightMaster_to_Environment",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "LightRig": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/LightRig')"
+        "snippet": "get_node('/root/LightRig')",
+        "valve_id": "valve_LightMaster_to_LightRig",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "Scriptura": {
         "strategy": "autoload_direct",
-        "snippet": "Scriptura"
+        "snippet": "Scriptura",
+        "valve_id": "valve_LightMaster_to_Scriptura",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -203,16 +263,31 @@
       "Collision": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/Collision')"
+        "snippet": "get_node('/root/Collision')",
+        "valve_id": "valve_SolidityMaster_to_Collision",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "EntityBody": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/EntityBody')"
+        "snippet": "get_node('/root/EntityBody')",
+        "valve_id": "valve_SolidityMaster_to_EntityBody",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "Scriptura": {
         "strategy": "autoload_direct",
-        "snippet": "Scriptura"
+        "snippet": "Scriptura",
+        "valve_id": "valve_SolidityMaster_to_Scriptura",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -246,16 +321,31 @@
       "MenuWorld": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/MenuWorld')"
+        "snippet": "get_node('/root/MenuWorld')",
+        "valve_id": "valve_ShapeSpawner_to_MenuWorld",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "ShapeSpawner": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/ShapeSpawner')"
+        "snippet": "get_node('/root/ShapeSpawner')",
+        "valve_id": "valve_ShapeSpawner_to_ShapeSpawner",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "Scriptura": {
         "strategy": "autoload_direct",
-        "snippet": "Scriptura"
+        "snippet": "Scriptura",
+        "valve_id": "valve_ShapeSpawner_to_Scriptura",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -289,16 +379,31 @@
       "MenuWorld": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/MenuWorld')"
+        "snippet": "get_node('/root/MenuWorld')",
+        "valve_id": "valve_MenuWorld_to_MenuWorld",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "DomeViewport": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/DomeViewport')"
+        "snippet": "get_node('/root/DomeViewport')",
+        "valve_id": "valve_MenuWorld_to_DomeViewport",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "Scriptura": {
         "strategy": "autoload_direct",
-        "snippet": "Scriptura"
+        "snippet": "Scriptura",
+        "valve_id": "valve_MenuWorld_to_Scriptura",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -331,16 +436,31 @@
     "connections": {
       "Scriptura": {
         "strategy": "autoload_direct",
-        "snippet": "Scriptura"
+        "snippet": "Scriptura",
+        "valve_id": "valve_ConsciousnessBridge_to_Scriptura",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "ConsciousnessBridge": {
         "strategy": "autoload_direct",
-        "snippet": "ConsciousnessBridge"
+        "snippet": "ConsciousnessBridge",
+        "valve_id": "valve_ConsciousnessBridge_to_ConsciousnessBridge",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "AgentServer": {
         "strategy": "cross_scene",
         "target_scene": null,
-        "snippet": "get_node('/root/AgentServer')"
+        "snippet": "get_node('/root/AgentServer')",
+        "valve_id": "valve_ConsciousnessBridge_to_AgentServer",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -374,19 +494,39 @@
     "connections": {
       "ScriptRegistry": {
         "strategy": "autoload_direct",
-        "snippet": "ScriptRegistry"
+        "snippet": "ScriptRegistry",
+        "valve_id": "valve_ProjectBrowser_to_ScriptRegistry",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "PathResolver": {
         "strategy": "autoload_direct",
-        "snippet": "PathResolver"
+        "snippet": "PathResolver",
+        "valve_id": "valve_ProjectBrowser_to_PathResolver",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "ConsciousnessBridge": {
         "strategy": "autoload_direct",
-        "snippet": "ConsciousnessBridge"
+        "snippet": "ConsciousnessBridge",
+        "valve_id": "valve_ProjectBrowser_to_ConsciousnessBridge",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "Scriptura": {
         "strategy": "autoload_direct",
-        "snippet": "Scriptura"
+        "snippet": "Scriptura",
+        "valve_id": "valve_ProjectBrowser_to_Scriptura",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -419,15 +559,30 @@
     "connections": {
       "ScriptRegistry": {
         "strategy": "autoload_direct",
-        "snippet": "ScriptRegistry"
+        "snippet": "ScriptRegistry",
+        "valve_id": "valve_ProjectCatalogue_to_ScriptRegistry",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "PathResolver": {
         "strategy": "autoload_direct",
-        "snippet": "PathResolver"
+        "snippet": "PathResolver",
+        "valve_id": "valve_ProjectCatalogue_to_PathResolver",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "ProjectCatalogue": {
         "strategy": "autoload_direct",
-        "snippet": "ProjectCatalogue"
+        "snippet": "ProjectCatalogue",
+        "valve_id": "valve_ProjectCatalogue_to_ProjectCatalogue",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -460,15 +615,30 @@
     "connections": {
       "ProjectCatalogue": {
         "strategy": "autoload_direct",
-        "snippet": "ProjectCatalogue"
+        "snippet": "ProjectCatalogue",
+        "valve_id": "valve_VesselDomeManager_to_ProjectCatalogue",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "CursorEntity": {
         "strategy": "autoload_direct",
-        "snippet": "CursorEntity"
+        "snippet": "CursorEntity",
+        "valve_id": "valve_VesselDomeManager_to_CursorEntity",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "VesselDomeManager": {
         "strategy": "autoload_direct",
-        "snippet": "VesselDomeManager"
+        "snippet": "VesselDomeManager",
+        "valve_id": "valve_VesselDomeManager_to_VesselDomeManager",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -501,16 +671,31 @@
     "connections": {
       "CursorEntity": {
         "strategy": "autoload_direct",
-        "snippet": "CursorEntity"
+        "snippet": "CursorEntity",
+        "valve_id": "valve_CursorEntity_to_CursorEntity",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "TheWeave": {
         "strategy": "autoload_direct",
-        "snippet": "TheWeave"
+        "snippet": "TheWeave",
+        "valve_id": "valve_CursorEntity_to_TheWeave",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "ProjectBrowser": {
         "strategy": "cross_scene",
         "target_scene": "res://scenes/browser/ProjectBrowser.tscn",
-        "snippet": "get_node('/root/ProjectBrowser')"
+        "snippet": "get_node('/root/ProjectBrowser')",
+        "valve_id": "valve_CursorEntity_to_ProjectBrowser",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -544,19 +729,39 @@
     "connections": {
       "TheWeave": {
         "strategy": "autoload_direct",
-        "snippet": "TheWeave"
+        "snippet": "TheWeave",
+        "valve_id": "valve_TheWeave_to_TheWeave",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "PathResolver": {
         "strategy": "autoload_direct",
-        "snippet": "PathResolver"
+        "snippet": "PathResolver",
+        "valve_id": "valve_TheWeave_to_PathResolver",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "VesselDomeManager": {
         "strategy": "autoload_direct",
-        "snippet": "VesselDomeManager"
+        "snippet": "VesselDomeManager",
+        "valve_id": "valve_TheWeave_to_VesselDomeManager",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "CursorEntity": {
         "strategy": "autoload_direct",
-        "snippet": "CursorEntity"
+        "snippet": "CursorEntity",
+        "valve_id": "valve_TheWeave_to_CursorEntity",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -589,15 +794,30 @@
     "connections": {
       "ScriptRegistry": {
         "strategy": "autoload_direct",
-        "snippet": "ScriptRegistry"
+        "snippet": "ScriptRegistry",
+        "valve_id": "valve_LifecycleHarness_to_ScriptRegistry",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "TreeWatcher": {
         "strategy": "autoload_direct",
-        "snippet": "TreeWatcher"
+        "snippet": "TreeWatcher",
+        "valve_id": "valve_LifecycleHarness_to_TreeWatcher",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "LogCatcher": {
         "strategy": "autoload_direct",
-        "snippet": "LogCatcher"
+        "snippet": "LogCatcher",
+        "valve_id": "valve_LifecycleHarness_to_LogCatcher",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -629,12 +849,22 @@
     "connections": {
       "LogCatcher": {
         "strategy": "autoload_direct",
-        "snippet": "LogCatcher"
+        "snippet": "LogCatcher",
+        "valve_id": "valve_LogCatcher_to_LogCatcher",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "ProjectBrowser": {
         "strategy": "cross_scene",
         "target_scene": "res://scenes/browser/ProjectBrowser.tscn",
-        "snippet": "get_node('/root/ProjectBrowser')"
+        "snippet": "get_node('/root/ProjectBrowser')",
+        "valve_id": "valve_LogCatcher_to_ProjectBrowser",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -684,19 +914,39 @@
     "connections": {
       "LiveForge": {
         "strategy": "autoload_direct",
-        "snippet": "LiveForge"
+        "snippet": "LiveForge",
+        "valve_id": "valve_LiveForge_to_LiveForge",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "TheWeave": {
         "strategy": "autoload_direct",
-        "snippet": "TheWeave"
+        "snippet": "TheWeave",
+        "valve_id": "valve_LiveForge_to_TheWeave",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "ScriptRegistry": {
         "strategy": "autoload_direct",
-        "snippet": "ScriptRegistry"
+        "snippet": "ScriptRegistry",
+        "valve_id": "valve_LiveForge_to_ScriptRegistry",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       },
       "TreeWatcher": {
         "strategy": "autoload_direct",
-        "snippet": "TreeWatcher"
+        "snippet": "TreeWatcher",
+        "valve_id": "valve_LiveForge_to_TreeWatcher",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
       }
     },
     "var_legend": {
@@ -706,6 +956,148 @@
         "passed_from": "UI/Weave actions",
         "previous_names": [],
         "current_name": "change",
+        "version_introduced": "1.0"
+      }
+    }
+  },
+  "self_doctor": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "SelfDoctor",
+    "script_id": "SelfDoctor",
+    "script_path": "res://autoload/SelfDoctor.gd",
+    "law_binding": "life",
+    "logic_A": "_run_diagnostics",
+    "logic_B": "soft_restart",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "ValveRegistry",
+      "ThreadSupervisor",
+      "TreeWatcher",
+      "FrameGovernor",
+      "LiveForge"
+    ],
+    "connections": {
+      "ValveRegistry": {
+        "strategy": "autoload_direct",
+        "snippet": "ValveRegistry",
+        "valve_id": "valve_doctor_to_registry",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
+      },
+      "ThreadSupervisor": {
+        "strategy": "autoload_direct",
+        "snippet": "ThreadSupervisor",
+        "valve_id": "valve_doctor_to_threads",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
+      },
+      "TreeWatcher": {
+        "strategy": "autoload_direct",
+        "snippet": "TreeWatcher",
+        "valve_id": "valve_doctor_to_tree",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
+      },
+      "FrameGovernor": {
+        "strategy": "autoload_direct",
+        "snippet": "FrameGovernor",
+        "valve_id": "valve_doctor_to_governor",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
+      },
+      "LiveForge": {
+        "strategy": "autoload_direct",
+        "snippet": "LiveForge",
+        "valve_id": "valve_doctor_to_forge",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
+      }
+    },
+    "var_legend": {
+      "issue": {
+        "type": "Dictionary",
+        "role": "diagnosed issue payload",
+        "passed_from": "diagnostic sweep",
+        "previous_names": [],
+        "current_name": "issue",
+        "version_introduced": "1.0"
+      }
+    }
+  },
+  "frame_governor": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "FrameGovernor",
+    "script_id": "FrameGovernor",
+    "script_path": "res://autoload/FrameGovernor.gd",
+    "law_binding": "time",
+    "logic_A": "queue_task",
+    "logic_B": "flush_priority",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "FrameGovernor",
+      "SelfDoctor",
+      "ValveRegistry",
+      "LiveForge"
+    ],
+    "connections": {
+      "FrameGovernor": {
+        "strategy": "autoload_direct",
+        "snippet": "FrameGovernor",
+        "valve_id": "valve_governor_self",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
+      },
+      "SelfDoctor": {
+        "strategy": "autoload_direct",
+        "snippet": "SelfDoctor",
+        "valve_id": "valve_governor_doctor",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
+      },
+      "ValveRegistry": {
+        "strategy": "autoload_direct",
+        "snippet": "ValveRegistry",
+        "valve_id": "valve_governor_valves",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
+      },
+      "LiveForge": {
+        "strategy": "autoload_direct",
+        "snippet": "LiveForge",
+        "valve_id": "valve_governor_forge",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
+      }
+    },
+    "var_legend": {
+      "task": {
+        "type": "Dictionary",
+        "role": "scheduled task envelope",
+        "passed_from": "callers",
+        "previous_names": [],
+        "current_name": "task",
         "version_introduced": "1.0"
       }
     }

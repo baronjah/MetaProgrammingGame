@@ -426,5 +426,95 @@
     "shared_resources": [],
     "mutex_required": false,
     "thread_owner": null
+  },
+  "ValveRegistry": {
+    "type": "autoload",
+    "path": "res://autoload/ValveRegistry.gd",
+    "class_name": "ValveRegistry",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": true,
+    "thread_safe": false,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "Valve": {
+    "type": "class_named",
+    "path": "res://systems/valve.gd",
+    "class_name": "Valve",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": false,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "ValveVisual": {
+    "type": "scene_script",
+    "path": "res://scenes/weave/ValveVisual.gd",
+    "class_name": "ValveVisual",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": false,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "SelfDoctor": {
+    "type": "autoload",
+    "path": "res://autoload/SelfDoctor.gd",
+    "class_name": "SelfDoctor",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": true,
+    "thread_safe": false,
+    "shared_resources": [
+      "known_issues",
+      "diagnosis_log"
+    ],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "DoctorPanel": {
+    "type": "scene_script",
+    "path": "res://scenes/doctor/DoctorPanel.gd",
+    "class_name": "DoctorPanel",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": false,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "FrameGovernor": {
+    "type": "autoload",
+    "path": "res://autoload/FrameGovernor.gd",
+    "class_name": "FrameGovernor",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": true,
+    "thread_safe": true,
+    "shared_resources": [
+      "queues",
+      "deferred_carry"
+    ],
+    "mutex_required": true,
+    "thread_owner": null
+  },
+  "GovernorPanel": {
+    "type": "scene_script",
+    "path": "res://scenes/governor/GovernorPanel.gd",
+    "class_name": "GovernorPanel",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": false,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
   }
 }

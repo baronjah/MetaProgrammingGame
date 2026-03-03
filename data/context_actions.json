@@ -22,5 +22,14 @@
     "Open Browser",
     "Switch Cursor Mode",
     "Open BabelTower"
+  ],
+  "valve_visual": [
+    "Open / Close",
+    "Set Throttle",
+    "Enable Capture",
+    "Save Baseline",
+    "Force Version A / B",
+    "View Capture Log",
+    "Reset Fails"
   ]
 }
