@@ -1,0 +1,73 @@
+{
+  "version": "1.1",
+  "connection_points": [
+    "Scriptura",
+    "ConsciousnessBridge"
+  ],
+  "laws": {
+    "gravity": {
+      "state": "A",
+      "A": "9.8",
+      "B": "-9.8",
+      "value": 1.0,
+      "target_value": 1.0,
+      "value_speed": 0.0
+    },
+    "life": {
+      "state": "A",
+      "A": "alive",
+      "B": "dead",
+      "value": 1.0,
+      "target_value": 1.0,
+      "value_speed": 0.0
+    },
+    "time": {
+      "state": "A",
+      "A": "forward",
+      "B": "reverse",
+      "value": 1.0,
+      "target_value": 1.0,
+      "value_speed": 0.0
+    },
+    "light": {
+      "state": "A",
+      "A": "visible",
+      "B": "void",
+      "value": 1.0,
+      "target_value": 1.0,
+      "value_speed": 0.0
+    },
+    "solidity": {
+      "state": "A",
+      "A": "rigid",
+      "B": "pass-through",
+      "value": 1.0,
+      "target_value": 1.0,
+      "value_speed": 0.0
+    },
+    "shape_mode": {
+      "state": "A",
+      "A": "flat_2d",
+      "B": "thick_3d",
+      "value": 1.0,
+      "target_value": 1.0,
+      "value_speed": 0.0
+    },
+    "gen_method": {
+      "state": "A",
+      "A": "marching_cubes",
+      "B": "sdf",
+      "value": 1.0,
+      "target_value": 1.0,
+      "value_speed": 0.0
+    },
+    "camera_mode": {
+      "state": "A",
+      "A": "perspective",
+      "B": "orthographic",
+      "value": 1.0,
+      "target_value": 1.0,
+      "value_speed": 0.0
+    }
+  }
+}

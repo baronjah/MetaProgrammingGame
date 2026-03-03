@@ -1,0 +1,31 @@
+{
+  "projects": {
+    "proj_garden_demo": {
+      "internal_id": "proj_garden_demo",
+      "display_name": "Garden \u2014 First Living Dome",
+      "disk_path": null,
+      "godot_version": "4.x",
+      "version_tag": "seed",
+      "custom_notes": "First dome with moving, interacting beings. The proof that creature layer (Layer 5+) works. Start when foundation is stable. Animals walk, react to each other, have simple goals via MUTATE_GLOBAL functions governed by Scriptura laws.",
+      "resurrection_status": "not_started",
+      "tags": [
+        "creature",
+        "garden",
+        "goal-layer",
+        "animation"
+      ],
+      "vessel_assignment": null,
+      "target_layers": [
+        5,
+        6,
+        7
+      ],
+      "minimum_branches_required": [
+        "feature/analog-laws",
+        "feature/timeline-engine",
+        "feature/router-system",
+        "feature/shape-primitives"
+      ]
+    }
+  }
+}

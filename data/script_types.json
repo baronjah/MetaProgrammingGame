@@ -1,0 +1,46 @@
+{
+  "types": {
+    "autoload": {
+      "description": "Global singleton. Registered in project.godot. Always present.",
+      "path_root": "res://autoload/",
+      "scene_placement": "none — engine loads directly",
+      "hotload": false,
+      "example": "Scriptura.gd, ConsciousnessBridge.gd"
+    },
+    "class_named": {
+      "description": "Has class_name. Can be instantiated anywhere. No scene required.",
+      "path_root": "res://systems/",
+      "scene_placement": "optional — added to scene as Node child",
+      "hotload": true,
+      "example": "PhysicsMaster.gd, LifeState.gd"
+    },
+    "addon": {
+      "description": "Lives in res://addons/. Has plugin.cfg. Extends EditorPlugin.",
+      "path_root": "res://addons/",
+      "scene_placement": "none — editor only",
+      "hotload": false,
+      "example": "any EditorPlugin tool"
+    },
+    "scene_script": {
+      "description": "Attached to a specific node in a specific scene. Cannot exist without its node.",
+      "path_root": "res://scenes/",
+      "scene_placement": "required — script IS the node behavior",
+      "hotload": true,
+      "example": "MenuWorld.gd attached to MenuWorld.tscn root"
+    },
+    "tool_script": {
+      "description": "Has @tool annotation. Runs in editor. May also run in game.",
+      "path_root": "res://tools/",
+      "scene_placement": "optional",
+      "hotload": false,
+      "example": "ScriptureBuilder.gd"
+    },
+    "orphan": {
+      "description": "Detected by data_bomb. No known attachment. Needs triage.",
+      "path_root": "unknown",
+      "scene_placement": "unknown",
+      "hotload": false,
+      "example": "any unattached .gd found during scavenge"
+    }
+  }
+}

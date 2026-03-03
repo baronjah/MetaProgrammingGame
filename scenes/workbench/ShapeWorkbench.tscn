@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scenes/workbench/ShapeWorkbench.gd" id="1"]
+[ext_resource type="Script" path="res://systems/primitive_factory.gd" id="2"]
+[ext_resource type="Script" path="res://systems/flat_shape_gen.gd" id="3"]
+[ext_resource type="Script" path="res://systems/thick_shape_gen.gd" id="4"]
+
+[node name="ShapeWorkbench" type="Node3D"]
+script = ExtResource("1")
+
+[node name="WorkDome" type="MeshInstance3D" parent="."]
+mesh = SphereMesh.new()
+
+[node name="Grid" type="MeshInstance3D" parent="."]
+mesh = PlaneMesh.new()
+scale = Vector3(6, 6, 1)
+
+[node name="PrimitiveFactory" type="Node" parent="."]
+script = ExtResource("2")
+
+[node name="PrimitiveConnector_Root" type="Node3D" parent="."]
+
+[node name="Selection" type="Node3D" parent="."]
+
+[node name="WorkbenchToolbar" type="Node3D" parent="."]
+position = Vector3(-2.5, 1.2, 0)
+
+[node name="WorkbenchLog" type="Node3D" parent="."]
+position = Vector3(2.8, 1.2, 0)
+
+[node name="FlatShapeGen" type="Node" parent="."]
+script = ExtResource("3")
+
+[node name="ThickShapeGen" type="Node" parent="."]
+script = ExtResource("4")
