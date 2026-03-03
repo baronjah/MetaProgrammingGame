@@ -30,6 +30,28 @@
         "strategy": "autoload_direct",
         "snippet": "Scriptura"
       }
+    },
+    "var_legend": {
+      "body": {
+        "type": "RigidBody3D",
+        "role": "the physics body gravity is applied to",
+        "passed_from": "EntitySpawner",
+        "previous_names": [
+          "entity",
+          "rb",
+          "physics_target"
+        ],
+        "current_name": "body",
+        "version_introduced": "1.0"
+      },
+      "gravity_scale": {
+        "type": "float",
+        "role": "Godot built-in RigidBody3D property",
+        "passed_from": "built-in",
+        "previous_names": [],
+        "current_name": "gravity_scale",
+        "version_introduced": "1.0"
+      }
     }
   },
   "life_state": {
@@ -62,6 +84,16 @@
       "Scriptura": {
         "strategy": "autoload_direct",
         "snippet": "Scriptura"
+      }
+    },
+    "var_legend": {
+      "input": {
+        "type": "Variant",
+        "role": "external parameter",
+        "passed_from": "unknown",
+        "previous_names": [],
+        "current_name": "input",
+        "version_introduced": "1.0"
       }
     }
   },
@@ -96,6 +128,16 @@
         "strategy": "autoload_direct",
         "snippet": "Scriptura"
       }
+    },
+    "var_legend": {
+      "input": {
+        "type": "Variant",
+        "role": "external parameter",
+        "passed_from": "unknown",
+        "previous_names": [],
+        "current_name": "input",
+        "version_introduced": "1.0"
+      }
     }
   },
   "light_mode": {
@@ -128,6 +170,16 @@
       "Scriptura": {
         "strategy": "autoload_direct",
         "snippet": "Scriptura"
+      }
+    },
+    "var_legend": {
+      "input": {
+        "type": "Variant",
+        "role": "external parameter",
+        "passed_from": "unknown",
+        "previous_names": [],
+        "current_name": "input",
+        "version_introduced": "1.0"
       }
     }
   },
@@ -162,6 +214,16 @@
         "strategy": "autoload_direct",
         "snippet": "Scriptura"
       }
+    },
+    "var_legend": {
+      "input": {
+        "type": "Variant",
+        "role": "external parameter",
+        "passed_from": "unknown",
+        "previous_names": [],
+        "current_name": "input",
+        "version_introduced": "1.0"
+      }
     }
   },
   "shape_spawner": {
@@ -194,6 +256,16 @@
       "Scriptura": {
         "strategy": "autoload_direct",
         "snippet": "Scriptura"
+      }
+    },
+    "var_legend": {
+      "input": {
+        "type": "Variant",
+        "role": "external parameter",
+        "passed_from": "unknown",
+        "previous_names": [],
+        "current_name": "input",
+        "version_introduced": "1.0"
       }
     }
   },
@@ -228,6 +300,16 @@
         "strategy": "autoload_direct",
         "snippet": "Scriptura"
       }
+    },
+    "var_legend": {
+      "input": {
+        "type": "Variant",
+        "role": "external parameter",
+        "passed_from": "unknown",
+        "previous_names": [],
+        "current_name": "input",
+        "version_introduced": "1.0"
+      }
     }
   },
   "consciousness_bridge": {
@@ -259,6 +341,16 @@
         "strategy": "cross_scene",
         "target_scene": null,
         "snippet": "get_node('/root/AgentServer')"
+      }
+    },
+    "var_legend": {
+      "input": {
+        "type": "Variant",
+        "role": "external parameter",
+        "passed_from": "unknown",
+        "previous_names": [],
+        "current_name": "input",
+        "version_introduced": "1.0"
       }
     }
   },
@@ -296,6 +388,16 @@
         "strategy": "autoload_direct",
         "snippet": "Scriptura"
       }
+    },
+    "var_legend": {
+      "input": {
+        "type": "Variant",
+        "role": "external parameter",
+        "passed_from": "unknown",
+        "previous_names": [],
+        "current_name": "input",
+        "version_introduced": "1.0"
+      }
     }
   },
   "project_catalogue": {
@@ -326,6 +428,16 @@
       "ProjectCatalogue": {
         "strategy": "autoload_direct",
         "snippet": "ProjectCatalogue"
+      }
+    },
+    "var_legend": {
+      "input": {
+        "type": "Variant",
+        "role": "external parameter",
+        "passed_from": "unknown",
+        "previous_names": [],
+        "current_name": "input",
+        "version_introduced": "1.0"
       }
     }
   },
@@ -358,6 +470,16 @@
         "strategy": "autoload_direct",
         "snippet": "VesselDomeManager"
       }
+    },
+    "var_legend": {
+      "input": {
+        "type": "Variant",
+        "role": "external parameter",
+        "passed_from": "unknown",
+        "previous_names": [],
+        "current_name": "input",
+        "version_introduced": "1.0"
+      }
     }
   },
   "cursor_entity": {
@@ -389,6 +511,16 @@
         "strategy": "cross_scene",
         "target_scene": "res://scenes/browser/ProjectBrowser.tscn",
         "snippet": "get_node('/root/ProjectBrowser')"
+      }
+    },
+    "var_legend": {
+      "input": {
+        "type": "Variant",
+        "role": "external parameter",
+        "passed_from": "unknown",
+        "previous_names": [],
+        "current_name": "input",
+        "version_introduced": "1.0"
       }
     }
   },
@@ -425,6 +557,156 @@
       "CursorEntity": {
         "strategy": "autoload_direct",
         "snippet": "CursorEntity"
+      }
+    },
+    "var_legend": {
+      "input": {
+        "type": "Variant",
+        "role": "external parameter",
+        "passed_from": "unknown",
+        "previous_names": [],
+        "current_name": "input",
+        "version_introduced": "1.0"
+      }
+    }
+  },
+  "lifecycle_harness": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "LifecycleHarness",
+    "script_id": "LifecycleHarness",
+    "script_path": "res://systems/lifecycle_harness.gd",
+    "law_binding": "time",
+    "logic_A": "safe_read",
+    "logic_B": "safe_write",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "ScriptRegistry",
+      "TreeWatcher",
+      "LogCatcher"
+    ],
+    "connections": {
+      "ScriptRegistry": {
+        "strategy": "autoload_direct",
+        "snippet": "ScriptRegistry"
+      },
+      "TreeWatcher": {
+        "strategy": "autoload_direct",
+        "snippet": "TreeWatcher"
+      },
+      "LogCatcher": {
+        "strategy": "autoload_direct",
+        "snippet": "LogCatcher"
+      }
+    },
+    "var_legend": {
+      "callable": {
+        "type": "Callable",
+        "role": "thread-protected operation",
+        "passed_from": "caller",
+        "previous_names": [],
+        "current_name": "callable",
+        "version_introduced": "1.0"
+      }
+    }
+  },
+  "log_catcher": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "LogCatcher",
+    "script_id": "LogCatcher",
+    "script_path": "res://autoload/LogCatcher.gd",
+    "law_binding": "light",
+    "logic_A": "log",
+    "logic_B": "error",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "LogCatcher",
+      "ProjectBrowser"
+    ],
+    "connections": {
+      "LogCatcher": {
+        "strategy": "autoload_direct",
+        "snippet": "LogCatcher"
+      },
+      "ProjectBrowser": {
+        "strategy": "cross_scene",
+        "target_scene": "res://scenes/browser/ProjectBrowser.tscn",
+        "snippet": "get_node('/root/ProjectBrowser')"
+      }
+    },
+    "var_legend": {
+      "category": {
+        "type": "String",
+        "role": "log category",
+        "passed_from": "caller",
+        "previous_names": [],
+        "current_name": "category",
+        "version_introduced": "1.0"
+      },
+      "event": {
+        "type": "String",
+        "role": "log event",
+        "passed_from": "caller",
+        "previous_names": [],
+        "current_name": "event",
+        "version_introduced": "1.0"
+      },
+      "detail": {
+        "type": "String",
+        "role": "log detail payload",
+        "passed_from": "caller",
+        "previous_names": [],
+        "current_name": "detail",
+        "version_introduced": "1.0"
+      }
+    }
+  },
+  "live_forge": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "LiveForge",
+    "script_id": "LiveForge",
+    "script_path": "res://autoload/LiveForge.gd",
+    "law_binding": "time",
+    "logic_A": "queue_change",
+    "logic_B": "toggle_forge",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "LiveForge",
+      "TheWeave",
+      "ScriptRegistry",
+      "TreeWatcher"
+    ],
+    "connections": {
+      "LiveForge": {
+        "strategy": "autoload_direct",
+        "snippet": "LiveForge"
+      },
+      "TheWeave": {
+        "strategy": "autoload_direct",
+        "snippet": "TheWeave"
+      },
+      "ScriptRegistry": {
+        "strategy": "autoload_direct",
+        "snippet": "ScriptRegistry"
+      },
+      "TreeWatcher": {
+        "strategy": "autoload_direct",
+        "snippet": "TreeWatcher"
+      }
+    },
+    "var_legend": {
+      "change": {
+        "type": "Dictionary",
+        "role": "queued forge mutation descriptor",
+        "passed_from": "UI/Weave actions",
+        "previous_names": [],
+        "current_name": "change",
+        "version_introduced": "1.0"
       }
     }
   }

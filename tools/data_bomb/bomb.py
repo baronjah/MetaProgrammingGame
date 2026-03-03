@@ -16,6 +16,7 @@ CLASS_RE = re.compile(r"^\s*class_name\s+(\w+)")
 EXTENDS_RE = re.compile(r"^\s*extends\s+([\w\.]+)")
 SIGNAL_RE = re.compile(r"^\s*signal\s+(\w+)")
 VAR_RE = re.compile(r"^\s*var\s+(\w+)(?:\s*:\s*([^=]+))?")
+LOCAL_VAR_RE = re.compile(r"\bvar\s+(\w+)(?:\s*:\s*([A-Za-z0-9_\.]+))?")
 
 
 @dataclass
@@ -147,6 +148,7 @@ def parse_gd(path: Path, root: Path, project_autoloads: set[str]) -> dict[str, A
         body = "\n".join(lines[start:end])
         calls = sorted(set(re.findall(r"\b([A-Z][A-Za-z0-9_]+)\.", body)))
         fn["calls_external"] = calls
+        fn["var_legend"] = build_var_legend_stub(fn["params"], body)
 
     for fn in functions:
         name = fn["name"]
@@ -180,6 +182,36 @@ def parse_gd(path: Path, root: Path, project_autoloads: set[str]) -> dict[str, A
         "needs_split": len(lines) > 400,
     }
 
+
+
+
+def build_var_legend_stub(params: list[str], body: str) -> dict[str, dict[str, str | list[str] | bool]]:
+    legend: dict[str, dict[str, str | list[str] | bool]] = {}
+    for param in params:
+        name = param.split(":", 1)[0].strip()
+        ptype = param.split(":", 1)[1].strip() if ":" in param else "Variant"
+        if name:
+            legend[name] = {
+                "type": ptype,
+                "role": "unknown",
+                "passed_from": "unknown",
+                "previous_names": [],
+                "current_name": name,
+                "needs_annotation": True,
+            }
+    for m in LOCAL_VAR_RE.finditer(body):
+        name = m.group(1)
+        ptype = m.group(2) or "Variant"
+        if name not in legend:
+            legend[name] = {
+                "type": ptype,
+                "role": "unknown",
+                "passed_from": "local",
+                "previous_names": [],
+                "current_name": name,
+                "needs_annotation": True,
+            }
+    return legend
 
 def parse_tscn(path: Path, root: Path) -> dict[str, Any]:
     text = safe_read(path)
