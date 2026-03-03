@@ -1,0 +1,130 @@
+{
+  "gravity_control": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "PhysicsMaster",
+    "script_path": "res://systems/physics_master.gd",
+    "law_binding": "gravity",
+    "logic_A": "apply_downward_gravity",
+    "logic_B": "apply_upward_gravity",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "WorldState",
+      "EntityBody",
+      "Scriptura"
+    ]
+  },
+  "life_state": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "LifeMaster",
+    "script_path": "res://systems/life_master.gd",
+    "law_binding": "life",
+    "logic_A": "spawn_alive",
+    "logic_B": "spawn_corpse",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "Spawner",
+      "EntityBody",
+      "Scriptura"
+    ]
+  },
+  "time_flow": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "TimeMaster",
+    "script_path": "res://systems/time_master.gd",
+    "law_binding": "time",
+    "logic_A": "entropy_forward",
+    "logic_B": "entropy_reverse",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "WorldState",
+      "Timeline",
+      "Scriptura"
+    ]
+  },
+  "light_mode": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "LightMaster",
+    "script_path": "res://systems/light_master.gd",
+    "law_binding": "light",
+    "logic_A": "ambient_lit",
+    "logic_B": "void_dark",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "Environment",
+      "LightRig",
+      "Scriptura"
+    ]
+  },
+  "solid_state": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "SolidityMaster",
+    "script_path": "res://systems/solidity_master.gd",
+    "law_binding": "solidity",
+    "logic_A": "rigid_collision",
+    "logic_B": "pass_through",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "Collision",
+      "EntityBody",
+      "Scriptura"
+    ]
+  },
+  "shape_spawner": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "ShapeSpawner",
+    "script_path": "res://scenes/eden/ShapeSpawner.gd",
+    "law_binding": "life",
+    "logic_A": "spawn_alive_shape",
+    "logic_B": "spawn_dead_shape",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "MenuWorld",
+      "ShapeSpawner",
+      "Scriptura"
+    ]
+  },
+  "menu_world": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "MenuWorld",
+    "script_path": "res://scenes/eden/MenuWorld.gd",
+    "law_binding": "light",
+    "logic_A": "_build_panel_a",
+    "logic_B": "_build_panel_b",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "MenuWorld",
+      "SubViewport",
+      "Scriptura"
+    ]
+  },
+  "consciousness_bridge": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "ConsciousnessBridge",
+    "script_path": "res://autoload/ConsciousnessBridge.gd",
+    "law_binding": "time",
+    "logic_A": "send_message",
+    "logic_B": "parse_response",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "Scriptura",
+      "ConsciousnessBridge",
+      "AgentServer"
+    ]
+  }
+}

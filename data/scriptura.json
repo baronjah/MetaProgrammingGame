@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "connection_points": [
+    "Scriptura",
+    "ConsciousnessBridge"
+  ],
+  "laws": {
+    "gravity": {
+      "state": "A",
+      "A": "9.8",
+      "B": "-9.8"
+    },
+    "life": {
+      "state": "A",
+      "A": "alive",
+      "B": "dead"
+    },
+    "time": {
+      "state": "A",
+      "A": "forward",
+      "B": "reverse"
+    },
+    "light": {
+      "state": "A",
+      "A": "visible",
+      "B": "void"
+    },
+    "solidity": {
+      "state": "A",
+      "A": "rigid",
+      "B": "pass-through"
+    }
+  }
+}
