@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/browser/ProjectBrowser.gd" id="1"]
+[ext_resource type="Script" path="res://scenes/browser/ScriptInspector.gd" id="2"]
+[ext_resource type="Script" path="res://scenes/browser/JsonInspector.gd" id="3"]
+[ext_resource type="Script" path="res://scenes/browser/NodeTreePreview.gd" id="4"]
+
+[node name="ProjectBrowser" type="Node3D"]
+script = ExtResource("1")
+
+[node name="BrowserWindow_A" type="Node3D" parent="."]
+
+[node name="PathBar" type="Node3D" parent="BrowserWindow_A"]
+[node name="Label3D" type="Label3D" parent="BrowserWindow_A/PathBar"]
+
+[node name="FileList" type="Node3D" parent="BrowserWindow_A"]
+[node name="ActionBar" type="Node3D" parent="BrowserWindow_A"]
+[node name="Label3D" type="Label3D" parent="BrowserWindow_A/ActionBar"]
+
+[node name="BrowserWindow_B" type="Node3D" parent="."]
+position = Vector3(2.2, 0, 0)
+[node name="PathBar" type="Node3D" parent="BrowserWindow_B"]
+[node name="Label3D" type="Label3D" parent="BrowserWindow_B/PathBar"]
+[node name="FileList" type="Node3D" parent="BrowserWindow_B"]
+[node name="ActionBar" type="Node3D" parent="BrowserWindow_B"]
+[node name="Label3D" type="Label3D" parent="BrowserWindow_B/ActionBar"]
+
+[node name="ScriptInspector" type="Node3D" parent="."]
+script = ExtResource("2")
+[node name="Label3D" type="Label3D" parent="ScriptInspector"]
+
+[node name="JsonInspector" type="Node3D" parent="."]
+position = Vector3(0, -1.2, 0)
+script = ExtResource("3")
+[node name="Label3D" type="Label3D" parent="JsonInspector"]
+
+[node name="NodeTreePreview" type="Node3D" parent="."]
+position = Vector3(0, -2.0, 0)
+script = ExtResource("4")
+
+[node name="DiffPanel" type="Node3D" parent="."]
+position = Vector3(0, 1.4, 0)
+[node name="Label3D" type="Label3D" parent="DiffPanel"]

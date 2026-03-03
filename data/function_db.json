@@ -13,7 +13,24 @@
       "WorldState",
       "EntityBody",
       "Scriptura"
-    ]
+    ],
+    "script_id": "PhysicsMaster",
+    "connections": {
+      "WorldState": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/WorldState')"
+      },
+      "EntityBody": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/EntityBody')"
+      },
+      "Scriptura": {
+        "strategy": "autoload_direct",
+        "snippet": "Scriptura"
+      }
+    }
   },
   "life_state": {
     "version": "1.0",
@@ -29,7 +46,24 @@
       "Spawner",
       "EntityBody",
       "Scriptura"
-    ]
+    ],
+    "script_id": "LifeMaster",
+    "connections": {
+      "Spawner": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/Spawner')"
+      },
+      "EntityBody": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/EntityBody')"
+      },
+      "Scriptura": {
+        "strategy": "autoload_direct",
+        "snippet": "Scriptura"
+      }
+    }
   },
   "time_flow": {
     "version": "1.0",
@@ -45,7 +79,24 @@
       "WorldState",
       "Timeline",
       "Scriptura"
-    ]
+    ],
+    "script_id": "TimeMaster",
+    "connections": {
+      "WorldState": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/WorldState')"
+      },
+      "Timeline": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/Timeline')"
+      },
+      "Scriptura": {
+        "strategy": "autoload_direct",
+        "snippet": "Scriptura"
+      }
+    }
   },
   "light_mode": {
     "version": "1.0",
@@ -61,7 +112,24 @@
       "Environment",
       "LightRig",
       "Scriptura"
-    ]
+    ],
+    "script_id": "LightMaster",
+    "connections": {
+      "Environment": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/Environment')"
+      },
+      "LightRig": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/LightRig')"
+      },
+      "Scriptura": {
+        "strategy": "autoload_direct",
+        "snippet": "Scriptura"
+      }
+    }
   },
   "solid_state": {
     "version": "1.0",
@@ -77,7 +145,24 @@
       "Collision",
       "EntityBody",
       "Scriptura"
-    ]
+    ],
+    "script_id": "SolidityMaster",
+    "connections": {
+      "Collision": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/Collision')"
+      },
+      "EntityBody": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/EntityBody')"
+      },
+      "Scriptura": {
+        "strategy": "autoload_direct",
+        "snippet": "Scriptura"
+      }
+    }
   },
   "shape_spawner": {
     "version": "1.0",
@@ -93,7 +178,24 @@
       "MenuWorld",
       "ShapeSpawner",
       "Scriptura"
-    ]
+    ],
+    "script_id": "ShapeSpawner",
+    "connections": {
+      "MenuWorld": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/MenuWorld')"
+      },
+      "ShapeSpawner": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/ShapeSpawner')"
+      },
+      "Scriptura": {
+        "strategy": "autoload_direct",
+        "snippet": "Scriptura"
+      }
+    }
   },
   "menu_world": {
     "version": "1.0",
@@ -109,7 +211,24 @@
       "MenuWorld",
       "DomeViewport",
       "Scriptura"
-    ]
+    ],
+    "script_id": "MenuWorld",
+    "connections": {
+      "MenuWorld": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/MenuWorld')"
+      },
+      "DomeViewport": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/DomeViewport')"
+      },
+      "Scriptura": {
+        "strategy": "autoload_direct",
+        "snippet": "Scriptura"
+      }
+    }
   },
   "consciousness_bridge": {
     "version": "1.0",
@@ -125,6 +244,58 @@
       "Scriptura",
       "ConsciousnessBridge",
       "AgentServer"
-    ]
+    ],
+    "script_id": "ConsciousnessBridge",
+    "connections": {
+      "Scriptura": {
+        "strategy": "autoload_direct",
+        "snippet": "Scriptura"
+      },
+      "ConsciousnessBridge": {
+        "strategy": "autoload_direct",
+        "snippet": "ConsciousnessBridge"
+      },
+      "AgentServer": {
+        "strategy": "cross_scene",
+        "target_scene": null,
+        "snippet": "get_node('/root/AgentServer')"
+      }
+    }
+  },
+  "project_browser": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "ProjectBrowser",
+    "script_id": "ProjectBrowser",
+    "script_path": "res://scenes/browser/ProjectBrowser.gd",
+    "law_binding": "light",
+    "logic_A": "navigate_to",
+    "logic_B": "compare_windows",
+    "active_state": "A",
+    "history": [],
+    "connection_points": [
+      "ScriptRegistry",
+      "PathResolver",
+      "ConsciousnessBridge",
+      "Scriptura"
+    ],
+    "connections": {
+      "ScriptRegistry": {
+        "strategy": "autoload_direct",
+        "snippet": "ScriptRegistry"
+      },
+      "PathResolver": {
+        "strategy": "autoload_direct",
+        "snippet": "PathResolver"
+      },
+      "ConsciousnessBridge": {
+        "strategy": "autoload_direct",
+        "snippet": "ConsciousnessBridge"
+      },
+      "Scriptura": {
+        "strategy": "autoload_direct",
+        "snippet": "Scriptura"
+      }
+    }
   }
 }

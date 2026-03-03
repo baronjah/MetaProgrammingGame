@@ -72,7 +72,40 @@ def detect(root: Path) -> dict[str, Any]:
     }
 
 
-def parse_gd(path: Path, root: Path) -> dict[str, Any]:
+
+
+def has_paired_tscn(file_path: Path) -> bool:
+    return file_path.with_suffix(".tscn").exists()
+
+
+def detect_script_type(file_path: Path, content: str, project_autoloads: set[str]) -> str:
+    res_path = f"res://{file_path.as_posix()}"
+    if res_path in project_autoloads or "/autoload/" in res_path.lower():
+        return "autoload"
+    if "extends EditorPlugin" in content or "/addons/" in res_path.lower():
+        return "addon"
+    if "class_name" in content and "@tool" in content:
+        return "tool_script"
+    if "class_name" in content:
+        return "class_named"
+    if has_paired_tscn(file_path):
+        return "scene_script"
+    return "orphan"
+
+
+def parse_project_autoloads(root: Path) -> set[str]:
+    project = root / "project.godot"
+    if not project.exists():
+        return set()
+    result = set()
+    for line in safe_read(project).splitlines():
+        if '=' in line and '.gd' in line and '*' in line:
+            right = line.split('=', 1)[1].strip().strip('"')
+            if right.startswith("res://"):
+                result.add(right)
+    return result
+
+def parse_gd(path: Path, root: Path, project_autoloads: set[str]) -> dict[str, Any]:
     text = safe_read(path)
     lines = text.splitlines()
     class_name = ""
@@ -131,8 +164,11 @@ def parse_gd(path: Path, root: Path) -> dict[str, Any]:
         fn["suspected_duality_pair"] = pair
         fn["missing_polar_opposite"] = pair is None
 
+    script_type = detect_script_type(path.relative_to(root), text, project_autoloads)
     return {
         "file_path": to_res(path, root),
+        "script_type": script_type,
+        "recommended_registry_type": script_type,
         "class_name": class_name,
         "extends": extends,
         "is_autoload": "autoload" in [p.lower() for p in path.parts],
@@ -189,6 +225,17 @@ def categorize(gd_data: list[dict[str, Any]], scenes: list[dict[str, Any]], root
     return cats
 
 
+
+
+def python_path_strategy(script_type: str, target_name: str) -> dict[str, str | bool | None]:
+    if target_name in {"Scriptura", "ScriptRegistry", "PathResolver", "ConsciousnessBridge"}:
+        return {"strategy": "autoload_direct", "snippet": target_name, "target_scene": None, "needs_scene_load": False}
+    if script_type == "class_named":
+        return {"strategy": "inject_dependency", "snippet": "pass as param", "target_scene": None, "needs_scene_load": False}
+    if script_type == "scene_script":
+        return {"strategy": "cross_scene", "snippet": f"get_node('/root/{target_name}')", "target_scene": None, "needs_scene_load": True}
+    return {"strategy": "root_climb", "snippet": "get_tree().root", "target_scene": None, "needs_scene_load": True}
+
 def resurrection_plan(root: Path, data: ScanState) -> dict[str, Any]:
     missing = []
     over = []
@@ -199,12 +246,14 @@ def resurrection_plan(root: Path, data: ScanState) -> dict[str, Any]:
         for fn in script["functions"]:
             if fn["missing_polar_opposite"]:
                 missing.append(f"{script['file_path']}::{fn['name']}")
+            path_info = {c: python_path_strategy(script.get("script_type", "orphan"), c) for c in fn["calls_external"]}
             components.append({
                 "component_id": f"{fn['name']}_v1",
                 "source_file": script["file_path"],
                 "function": fn["name"],
                 "duality_complete": not fn["missing_polar_opposite"],
                 "recommendation": "extract/add polar opposite" if fn["missing_polar_opposite"] else "keep and wire to Scriptura",
+                "path_strategies": path_info,
             })
     return {
         "project_name": root.name,
@@ -261,7 +310,8 @@ def run_scan(root: Path) -> None:
     out.mkdir(exist_ok=True)
 
     detection = detect(root)
-    scripts = [parse_gd(p, root) for p in list_files(root, "*.gd")]
+    project_autoloads = parse_project_autoloads(root)
+    scripts = [parse_gd(p, root, project_autoloads) for p in list_files(root, "*.gd")]
     scenes = [parse_tscn(p, root) for p in list_files(root, "*.tscn")]
     py = [p.relative_to(root).as_posix() for p in list_files(root, "*.py")]
     md = [p.relative_to(root).as_posix() for p in list_files(root, "*.md")]

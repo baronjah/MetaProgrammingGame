@@ -1,0 +1,122 @@
+{
+  "Scriptura": {
+    "type": "autoload",
+    "path": "res://autoload/Scriptura.gd",
+    "class_name": "Scriptura",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": true
+  },
+  "ConsciousnessBridge": {
+    "type": "autoload",
+    "path": "res://autoload/ConsciousnessBridge.gd",
+    "class_name": "ConsciousnessBridge",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": true
+  },
+  "PhysicsMaster": {
+    "type": "class_named",
+    "path": "res://systems/physics_master.gd",
+    "class_name": "PhysicsMaster",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false
+  },
+  "LifeMaster": {
+    "type": "class_named",
+    "path": "res://systems/life_master.gd",
+    "class_name": "LifeMaster",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false
+  },
+  "TimeMaster": {
+    "type": "class_named",
+    "path": "res://systems/time_master.gd",
+    "class_name": "TimeMaster",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false
+  },
+  "LightMaster": {
+    "type": "class_named",
+    "path": "res://systems/light_master.gd",
+    "class_name": "LightMaster",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false
+  },
+  "SolidityMaster": {
+    "type": "class_named",
+    "path": "res://systems/solidity_master.gd",
+    "class_name": "SolidityMaster",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false
+  },
+  "MenuWorld": {
+    "type": "scene_script",
+    "path": "res://scenes/eden/MenuWorld.gd",
+    "class_name": "MenuWorld",
+    "scene_attachment": "res://scenes/eden/MenuWorld.tscn",
+    "node_path_in_scene": ".",
+    "loaded": false
+  },
+  "ShapeSpawner": {
+    "type": "scene_script",
+    "path": "res://scenes/eden/ShapeSpawner.gd",
+    "class_name": "ShapeSpawner",
+    "scene_attachment": "res://scenes/eden/MenuWorld.tscn",
+    "node_path_in_scene": "ShapeSpawner",
+    "loaded": false
+  },
+  "ScriptRegistry": {
+    "type": "autoload",
+    "path": "res://autoload/ScriptRegistry.gd",
+    "class_name": "ScriptRegistry",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": true
+  },
+  "PathResolver": {
+    "type": "autoload",
+    "path": "res://autoload/PathResolver.gd",
+    "class_name": "PathResolver",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": true
+  },
+  "ProjectBrowser": {
+    "type": "scene_script",
+    "path": "res://scenes/browser/ProjectBrowser.gd",
+    "class_name": "ProjectBrowser",
+    "scene_attachment": "res://scenes/browser/ProjectBrowser.tscn",
+    "node_path_in_scene": ".",
+    "loaded": false
+  },
+  "ScriptInspector": {
+    "type": "scene_script",
+    "path": "res://scenes/browser/ScriptInspector.gd",
+    "class_name": "ScriptInspector",
+    "scene_attachment": "res://scenes/browser/ProjectBrowser.tscn",
+    "node_path_in_scene": "ScriptInspector",
+    "loaded": false
+  },
+  "JsonInspector": {
+    "type": "scene_script",
+    "path": "res://scenes/browser/JsonInspector.gd",
+    "class_name": "JsonInspector",
+    "scene_attachment": "res://scenes/browser/ProjectBrowser.tscn",
+    "node_path_in_scene": "JsonInspector",
+    "loaded": false
+  },
+  "NodeTreePreview": {
+    "type": "scene_script",
+    "path": "res://scenes/browser/NodeTreePreview.gd",
+    "class_name": "NodeTreePreview",
+    "scene_attachment": "res://scenes/browser/ProjectBrowser.tscn",
+    "node_path_in_scene": "NodeTreePreview",
+    "loaded": false
+  }
+}
