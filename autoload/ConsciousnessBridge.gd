@@ -6,11 +6,13 @@ var prefix_prompt: String = ""
 var suffix_prompt: String = ""
 var http: HTTPRequest
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _ready() -> void:
 	http = HTTPRequest.new()
 	add_child(http)
 	http.request_completed.connect(_on_request_completed)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func send_message(content: String, agent_mode: String = "default") -> void:
 	var payload := build_payload(content, agent_mode)
 	var body := JSON.stringify(payload)
@@ -23,6 +25,7 @@ func send_message(content: String, agent_mode: String = "default") -> void:
 	if err != OK:
 		Scriptura.push_message("Bridge request dispatch failed: %s" % err, "ConsciousnessBridge")
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func build_payload(content: String, mode: String) -> Dictionary:
 	var start := maxi(Scriptura.message_log.size() - 10, 0)
 	return {
@@ -33,6 +36,7 @@ func build_payload(content: String, mode: String) -> Dictionary:
 		"content": content,
 	}
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func parse_response(body: String) -> void:
 	var parsed := JSON.parse_string(body)
 	if typeof(parsed) == TYPE_DICTIONARY and parsed.has("content"):
@@ -41,6 +45,7 @@ func parse_response(body: String) -> void:
 		Scriptura.snap_function(token)
 	Scriptura.push_message(body, "agent")
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _on_request_completed(_result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
 	if response_code < 200 or response_code >= 300:
 		Scriptura.push_message("Bridge request failed: %s" % response_code, "ConsciousnessBridge")

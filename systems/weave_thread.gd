@@ -14,10 +14,12 @@ var line_mesh: MeshInstance3D
 var control_point_a: Vector3
 var control_point_b: Vector3
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _ready() -> void:
 	line_mesh = MeshInstance3D.new()
 	add_child(line_mesh)
 
+# DNA: MUTATE_NODE | auto-tag v1.6
 func draw_straight(from: Vector3, to: Vector3) -> void:
 	var im := ImmediateMesh.new()
 	var mat := ORMMaterial3D.new()
@@ -27,6 +29,7 @@ func draw_straight(from: Vector3, to: Vector3) -> void:
 	im.surface_end()
 	line_mesh.mesh = im
 
+# DNA: MUTATE_NODE | auto-tag v1.6
 func draw_bezier(from: Vector3, to: Vector3, cp_a: Vector3, cp_b: Vector3) -> void:
 	var im := ImmediateMesh.new()
 	var mat := ORMMaterial3D.new()
@@ -38,6 +41,7 @@ func draw_bezier(from: Vector3, to: Vector3, cp_a: Vector3, cp_b: Vector3) -> vo
 	im.surface_end()
 	line_mesh.mesh = im
 
+# DNA: MUTATE_NODE | auto-tag v1.6
 func draw_routed(from: Vector3, to: Vector3, obstacles: Array[AABB]) -> void:
 	for ob in obstacles:
 		if ob.has_point((from + to) * 0.5):
@@ -46,12 +50,14 @@ func draw_routed(from: Vector3, to: Vector3, obstacles: Array[AABB]) -> void:
 			return
 	draw_bezier(from, to, from + Vector3(0, 2, 0), to + Vector3(0, 2, 0))
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func set_active(state: bool) -> void:
 	active = state
 	if line_mesh and line_mesh.mesh:
 		line_mesh.visible = true
 		line_mesh.modulate = Color(1, 1, 1) if state else Color(0.4, 0.4, 0.4, 0.6)
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func set_law_color() -> void:
 	var color := Color(1, 1, 1)
 	if law_binding != "":

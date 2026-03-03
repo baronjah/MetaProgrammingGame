@@ -7,6 +7,7 @@ var functions: Array[Dictionary] = []
 var input_ports: Array[Node3D] = []
 var output_ports: Array[Node3D] = []
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func build_ports_from_registry() -> void:
 	for c in get_children():
 		if c.name.begins_with("InputPort_") or c.name.begins_with("OutputPort_"):
@@ -34,6 +35,7 @@ func build_ports_from_registry() -> void:
 		add_child(in_port)
 		input_ports.append(in_port)
 
+# DNA: MUTATE_NODE | auto-tag v1.6
 func highlight_function(_func_name: String) -> void:
 	for port in output_ports:
 		(port as MeshInstance3D).modulate = Color(1.0, 0.8, 0.2)

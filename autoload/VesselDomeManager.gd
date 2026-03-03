@@ -10,6 +10,7 @@ signal dome_closed(vessel_id: String)
 signal dome_focused(vessel_id: String)
 signal project_assigned(project_id: String, vessel_id: String)
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func create_dome(project_id: String) -> String:
 	if active_domes.size() >= MAX_DOMES:
 		return ""
@@ -28,6 +29,7 @@ func create_dome(project_id: String) -> String:
 	dome_created.emit(vessel_id)
 	return vessel_id
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func create_shared_dome(project_ids: Array[String]) -> String:
 	if active_domes.size() >= MAX_DOMES:
 		return ""
@@ -47,6 +49,7 @@ func create_shared_dome(project_ids: Array[String]) -> String:
 	dome_created.emit(vessel_id)
 	return vessel_id
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func close_dome(vessel_id: String) -> void:
 	if not active_domes.has(vessel_id):
 		return
@@ -57,6 +60,7 @@ func close_dome(vessel_id: String) -> void:
 	active_domes.erase(vessel_id)
 	dome_closed.emit(vessel_id)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func focus_dome(vessel_id: String) -> void:
 	if not active_domes.has(vessel_id):
 		return
@@ -69,6 +73,7 @@ func focus_dome(vessel_id: String) -> void:
 	tween.tween_property(cam, "global_position", target, 0.4)
 	dome_focused.emit(vessel_id)
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func get_layout_position(index: int) -> Vector3:
 	var offsets := [Vector3(-8, 0, 0), Vector3(8, 0, 0), Vector3(-16, 0, -2), Vector3(16, 0, -2)]
 	return offsets[index] if index < offsets.size() else Vector3(index * 10, 0, 0)

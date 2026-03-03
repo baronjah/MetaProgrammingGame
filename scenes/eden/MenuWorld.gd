@@ -1,10 +1,12 @@
 class_name MenuWorld
 extends Node3D
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _ready() -> void:
 	_build_panel_a()
 	_build_panel_b()
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _build_panel_a() -> void:
 	var panel := $MenuPanel_Main
 	if panel.get_node_or_null("PanelMesh") == null:
@@ -20,6 +22,7 @@ func _build_panel_a() -> void:
 		label.position = Vector3(0, 0, 0.01)
 		panel.add_child(label)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _build_panel_b() -> void:
 	if $MenuPanel_Main.get_node_or_null("SpawnButtonArea") != null:
 		return
@@ -33,6 +36,7 @@ func _build_panel_b() -> void:
 	$MenuPanel_Main.add_child(area)
 	area.input_event.connect(_on_panel_input)
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _on_panel_input(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		$ShapeSpawner.request_spawn(self)

@@ -1,0 +1,123 @@
+{
+  "types": {
+    "RETURN_VALUE": {
+      "description": "Computes and returns a result. Does not modify anything external. Pure.",
+      "modifies_global": false,
+      "touches_scene_tree": false,
+      "touches_files": false,
+      "thread_safe_default": true,
+      "valve_default": "pass_through",
+      "doctor_priority": "low",
+      "color": "#88CCFF",
+      "example": "get_law(), compute_path(), serialize_args()"
+    },
+    "QUERY_GLOBAL": {
+      "description": "Reads a global variable or autoload state. Returns it. Does not write.",
+      "modifies_global": false,
+      "touches_scene_tree": false,
+      "touches_files": false,
+      "thread_safe_default": true,
+      "valve_default": "pass_through",
+      "doctor_priority": "low",
+      "color": "#AAFFAA",
+      "example": "Scriptura.get_law(), ScriptRegistry.get_scripts_by_type()"
+    },
+    "MUTATE_GLOBAL": {
+      "description": "Writes to a global variable or autoload state. Changes world law.",
+      "modifies_global": true,
+      "touches_scene_tree": false,
+      "touches_files": false,
+      "thread_safe_default": false,
+      "valve_default": "log_and_pass",
+      "mutex_required": true,
+      "doctor_priority": "high",
+      "color": "#FFAA44",
+      "example": "Scriptura.set_law(), ScriptRegistry.register_script()"
+    },
+    "COPY_GLOBAL": {
+      "description": "Reads global state and stores a local copy of it. Does not write back.",
+      "modifies_global": false,
+      "touches_scene_tree": false,
+      "touches_files": false,
+      "thread_safe_default": true,
+      "valve_default": "pass_through",
+      "doctor_priority": "low",
+      "color": "#CCFFCC",
+      "example": "var snapshot = Scriptura.current_laws.duplicate()"
+    },
+    "MUTATE_NODE": {
+      "description": "Changes a property or calls a method on a Node in the scene tree.",
+      "modifies_global": false,
+      "touches_scene_tree": true,
+      "touches_files": false,
+      "thread_safe_default": false,
+      "valve_default": "log_and_pass",
+      "must_be_main_thread": true,
+      "doctor_priority": "medium",
+      "color": "#FFFF88",
+      "example": "node.position = ..., node.set_script(), reparent()"
+    },
+    "QUERY_NODE": {
+      "description": "Reads a property from a Node. Does not change it.",
+      "modifies_global": false,
+      "touches_scene_tree": true,
+      "touches_files": false,
+      "thread_safe_default": false,
+      "must_be_main_thread": true,
+      "valve_default": "pass_through",
+      "doctor_priority": "low",
+      "color": "#FFFFAA",
+      "example": "node.get_path(), node.is_inside_tree()"
+    },
+    "TREE_STRUCTURE": {
+      "description": "Adds, removes, or reparents nodes. Changes the scene tree structure itself.",
+      "modifies_global": false,
+      "touches_scene_tree": true,
+      "touches_files": false,
+      "thread_safe_default": false,
+      "must_be_main_thread": true,
+      "must_use_call_deferred": true,
+      "valve_default": "gate_and_queue",
+      "doctor_priority": "critical",
+      "color": "#FF8844",
+      "example": "add_child(), remove_child(), reparent(), free()"
+    },
+    "CREATE_FILE": {
+      "description": "Creates a new file on disk. File did not exist before.",
+      "modifies_global": false,
+      "touches_scene_tree": false,
+      "touches_files": true,
+      "file_op": "create",
+      "thread_safe_default": true,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium",
+      "color": "#FF88FF",
+      "example": "FileAccess.open(path, WRITE), first_impact.json creation"
+    },
+    "READ_FILE": {
+      "description": "Reads an existing file. Does not modify it.",
+      "modifies_global": false,
+      "touches_scene_tree": false,
+      "touches_files": true,
+      "file_op": "read",
+      "thread_safe_default": true,
+      "valve_default": "pass_through",
+      "doctor_priority": "low",
+      "color": "#FFCCFF",
+      "example": "load_scriptura(), read first_impact.json"
+    },
+    "WRITE_RESOURCE": {
+      "description": "Writes to or modifies an existing file. Appends or overwrites content.",
+      "modifies_global": false,
+      "touches_scene_tree": false,
+      "touches_files": true,
+      "file_op": "write",
+      "thread_safe_default": false,
+      "valve_default": "log_and_pass",
+      "mutex_required": true,
+      "doctor_priority": "high",
+      "color": "#FF44FF",
+      "example": "save_scriptura(), append to session.log, update function_db"
+    }
+  }
+}

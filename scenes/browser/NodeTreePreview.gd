@@ -1,6 +1,7 @@
 class_name NodeTreePreview
 extends Node3D
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func preview_scene(path: String) -> void:
 	for c in get_children():
 		c.queue_free()

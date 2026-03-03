@@ -67,6 +67,15 @@
         "current_name": "gravity_scale",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "life_state": {
@@ -125,6 +134,15 @@
         "current_name": "input",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "time_flow": {
@@ -183,6 +201,15 @@
         "current_name": "input",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "light_mode": {
@@ -241,6 +268,15 @@
         "current_name": "input",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "solid_state": {
@@ -299,6 +335,15 @@
         "current_name": "input",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "shape_spawner": {
@@ -357,6 +402,15 @@
         "current_name": "input",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "menu_world": {
@@ -415,6 +469,15 @@
         "current_name": "input",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "consciousness_bridge": {
@@ -472,6 +535,15 @@
         "current_name": "input",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "project_browser": {
@@ -538,6 +610,15 @@
         "current_name": "input",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "project_catalogue": {
@@ -594,6 +675,15 @@
         "current_name": "input",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_GLOBAL",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": false,
+      "mutex_required": true,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "high"
     }
   },
   "vessel_dome_manager": {
@@ -650,6 +740,15 @@
         "current_name": "input",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "cursor_entity": {
@@ -707,6 +806,15 @@
         "current_name": "input",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "the_weave": {
@@ -773,6 +881,15 @@
         "current_name": "input",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "lifecycle_harness": {
@@ -829,6 +946,15 @@
         "current_name": "callable",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "log_catcher": {
@@ -892,6 +1018,15 @@
         "current_name": "detail",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "live_forge": {
@@ -958,6 +1093,15 @@
         "current_name": "change",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "TREE_STRUCTURE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": true,
+      "valve_default": "gate_and_queue",
+      "doctor_priority": "critical"
     }
   },
   "self_doctor": {
@@ -1034,6 +1178,15 @@
         "current_name": "issue",
         "version_introduced": "1.0"
       }
+    },
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
     }
   },
   "frame_governor": {
@@ -1098,6 +1251,197 @@
         "passed_from": "callers",
         "previous_names": [],
         "current_name": "task",
+        "version_introduced": "1.0"
+      }
+    },
+    "dna": {
+      "type": "TREE_STRUCTURE",
+      "classified_by": "heuristic",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": true,
+      "valve_default": "gate_and_queue",
+      "doctor_priority": "critical"
+    }
+  },
+  "primitive_factory": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "PrimitiveFactory",
+    "script_id": "PrimitiveFactory",
+    "script_path": "res://systems/primitive_factory.gd",
+    "law_binding": "life",
+    "logic_A": "create",
+    "logic_B": "destroy",
+    "active_state": "A",
+    "history": [],
+    "dna": {
+      "type": "TREE_STRUCTURE",
+      "classified_by": "human",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": true,
+      "valve_default": "gate_and_queue",
+      "doctor_priority": "critical"
+    },
+    "connection_points": [
+      "FrameGovernor",
+      "LogCatcher"
+    ],
+    "connections": {
+      "FrameGovernor": {
+        "strategy": "autoload_direct",
+        "snippet": "FrameGovernor",
+        "valve_id": "valve_factory_to_governor",
+        "valve_state": "open",
+        "throttle_ms": 16,
+        "capture_enabled": true,
+        "active_version": "A"
+      },
+      "LogCatcher": {
+        "strategy": "autoload_direct",
+        "snippet": "LogCatcher",
+        "valve_id": "valve_factory_to_log",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": true,
+        "active_version": "A"
+      }
+    },
+    "var_legend": {
+      "primitive_id": {
+        "type": "String",
+        "role": "library primitive selector",
+        "passed_from": "toolbar/caller",
+        "previous_names": [],
+        "current_name": "primitive_id",
+        "version_introduced": "1.0"
+      },
+      "parent": {
+        "type": "Node3D",
+        "role": "spawn parent in scene",
+        "passed_from": "workbench",
+        "previous_names": [],
+        "current_name": "parent",
+        "version_introduced": "1.0"
+      }
+    }
+  },
+  "primitive_connector": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "PrimitiveConnector",
+    "script_id": "PrimitiveConnector",
+    "script_path": "res://systems/primitive_connector.gd",
+    "law_binding": "gravity",
+    "logic_A": "connect_primitives",
+    "logic_B": "disconnect",
+    "active_state": "A",
+    "history": [],
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "human",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
+    },
+    "connection_points": [
+      "PrimitiveFactory"
+    ],
+    "connections": {
+      "PrimitiveFactory": {
+        "strategy": "cross_scene",
+        "target_scene": "res://scenes/workbench/ShapeWorkbench.tscn",
+        "snippet": "get_node('/root/ShapeWorkbench/PrimitiveFactory')",
+        "valve_id": "valve_connector_to_factory",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
+      }
+    },
+    "var_legend": {
+      "a": {
+        "type": "MeshInstance3D",
+        "role": "from primitive",
+        "passed_from": "workbench",
+        "previous_names": [],
+        "current_name": "a",
+        "version_introduced": "1.0"
+      },
+      "b": {
+        "type": "MeshInstance3D",
+        "role": "to primitive",
+        "passed_from": "workbench",
+        "previous_names": [],
+        "current_name": "b",
+        "version_introduced": "1.0"
+      }
+    }
+  },
+  "shape_workbench": {
+    "version": "1.0",
+    "autoload": "Scriptura",
+    "class_name": "ShapeWorkbench",
+    "script_id": "ShapeWorkbench",
+    "script_path": "res://scenes/workbench/ShapeWorkbench.gd",
+    "law_binding": "light",
+    "logic_A": "spawn_at",
+    "logic_B": "deselect_all",
+    "active_state": "A",
+    "history": [],
+    "dna": {
+      "type": "MUTATE_NODE",
+      "classified_by": "human",
+      "classified_version": "1.0",
+      "main_thread_required": true,
+      "mutex_required": false,
+      "valve_default": "log_and_pass",
+      "doctor_priority": "medium"
+    },
+    "connection_points": [
+      "CursorEntity",
+      "PrimitiveFactory",
+      "PrimitiveConnector"
+    ],
+    "connections": {
+      "CursorEntity": {
+        "strategy": "autoload_direct",
+        "snippet": "CursorEntity",
+        "valve_id": "valve_workbench_to_cursor",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
+      },
+      "PrimitiveFactory": {
+        "strategy": "same_scene",
+        "snippet": "$PrimitiveFactory",
+        "valve_id": "valve_workbench_to_factory",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
+      },
+      "PrimitiveConnector": {
+        "strategy": "same_scene",
+        "snippet": "$PrimitiveConnector_Root",
+        "valve_id": "valve_workbench_to_connector",
+        "valve_state": "open",
+        "throttle_ms": 0,
+        "capture_enabled": false,
+        "active_version": "A"
+      }
+    },
+    "var_legend": {
+      "selected": {
+        "type": "Array[MeshInstance3D]",
+        "role": "current primitive selection",
+        "passed_from": "cursor picks",
+        "previous_names": [],
+        "current_name": "selected",
         "version_introduced": "1.0"
       }
     }

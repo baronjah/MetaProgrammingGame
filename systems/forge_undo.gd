@@ -5,9 +5,11 @@ var hot_stack: Array[Dictionary] = []
 var cold_stack: Array[Dictionary] = []
 const COLD_PATH := "user://forge_undo_cold.json"
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _ready() -> void:
 	_load_cold()
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func push_inverse(original: Dictionary) -> void:
 	var inverse := _inverse_of(original)
 	if inverse.is_empty():
@@ -23,6 +25,7 @@ func push_inverse(original: Dictionary) -> void:
 		if Engine.has_singleton("LogCatcher"):
 			LogCatcher.warn("FORGE", "Undo hot stack full, moved oldest to cold storage")
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func pop_and_apply() -> void:
 	if not hot_stack.is_empty():
 		LiveForge.queue_change(hot_stack.pop_back())
@@ -34,6 +37,7 @@ func pop_and_apply() -> void:
 		if Engine.has_singleton("LogCatcher"):
 			LogCatcher.log("FORGE", "undo_from_cold", "applied from disk-backed stack")
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _inverse_of(change: Dictionary) -> Dictionary:
 	var ctype := str(change.get("type", ""))
 	match ctype:
@@ -54,11 +58,13 @@ func _inverse_of(change: Dictionary) -> Dictionary:
 		_:
 			return {}
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func _save_cold() -> void:
 	var f := FileAccess.open(COLD_PATH, FileAccess.WRITE)
 	if f:
 		f.store_string(JSON.stringify(cold_stack))
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func _load_cold() -> void:
 	if not FileAccess.file_exists(COLD_PATH):
 		return

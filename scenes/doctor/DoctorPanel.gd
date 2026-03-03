@@ -3,10 +3,12 @@ extends Node3D
 
 var hold_time: float = 0.0
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _process(delta: float) -> void:
 	_update_status()
 	_update_health_bar()
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func _update_status() -> void:
 	var status := "healthy"
 	var color := Color(0.2, 1.0, 0.2)
@@ -23,15 +25,19 @@ func _update_status() -> void:
 	if has_node("IssueList/Label3D"):
 		$IssueList/Label3D.text = "%s (%d)" % [status, SelfDoctor.repair_queue.size()]
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func set_mode_observe() -> void:
 	SelfDoctor.mode = SelfDoctor.Mode.OBSERVE
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func set_mode_assist() -> void:
 	SelfDoctor.mode = SelfDoctor.Mode.ASSIST
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func set_mode_autonomous() -> void:
 	SelfDoctor.mode = SelfDoctor.Mode.AUTONOMOUS
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func hold_soft_restart(delta: float, holding: bool) -> void:
 	if not holding:
 		hold_time = 0.0
@@ -43,12 +49,15 @@ func hold_soft_restart(delta: float, holding: bool) -> void:
 		SelfDoctor.soft_restart()
 		hold_time = 0.0
 
+# DNA: MUTATE_NODE | auto-tag v1.6
 func apply_issue(issue_id: String) -> void:
 	SelfDoctor.confirm_repair(issue_id)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func dismiss_issue(issue_id: String) -> void:
 	SelfDoctor.reject_repair(issue_id)
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func _update_health_bar() -> void:
 	if not has_node("HealthBar"):
 		return

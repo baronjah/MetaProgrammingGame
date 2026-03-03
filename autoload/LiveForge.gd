@@ -7,16 +7,19 @@ signal change_applied(change: Dictionary)
 signal change_failed(change: Dictionary, reason: String)
 signal forge_toggled(active: bool)
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func queue_change(change: Dictionary) -> void:
 	change_queue.append(change)
 	if Engine.has_singleton("LogCatcher"):
 		LogCatcher.log("FORGE", "queued", str(change.get("type", "unknown")))
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _process(_delta: float) -> void:
 	if forge_active and change_queue.size() > 0:
 		var change := change_queue.pop_front()
 		_apply(change)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _apply(change: Dictionary) -> void:
 	var ctype := str(change.get("type", ""))
 	match ctype:
@@ -37,11 +40,13 @@ func _apply(change: Dictionary) -> void:
 			if Engine.has_singleton("LogCatcher"):
 				LogCatcher.warn("FORGE", "Unknown change type: %s" % ctype)
 
+# DNA: MUTATE_NODE | auto-tag v1.6
 func _apply_law_flip(c: Dictionary) -> void:
 	Scriptura.set_law(str(c.get("law", "")), str(c.get("to", "A")))
 	Scriptura.save_scriptura() if Scriptura.has_method("save_scriptura") else null
 	change_applied.emit(c)
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func _apply_thread_create(c: Dictionary) -> void:
 	TheWeave.add_thread(str(c.get("from_script", "")), str(c.get("to_script", "")), str(c.get("from_func", "")), str(c.get("to_func", "")), str(c.get("law", "")))
 	var source := str(c.get("from_script", ""))
@@ -55,10 +60,12 @@ func _apply_thread_create(c: Dictionary) -> void:
 	Scriptura.save_function_db()
 	change_applied.emit(c)
 
+# DNA: MUTATE_NODE | auto-tag v1.6
 func _apply_thread_remove(c: Dictionary) -> void:
 	TheWeave.toggle_thread(str(c.get("thread_id", "")))
 	change_applied.emit(c)
 
+# DNA: MUTATE_NODE | auto-tag v1.6
 func _apply_hotload(c: Dictionary) -> void:
 	var node := get_tree().root.get_node_or_null(str(c.get("target_node_path", "")))
 	if node == null:
@@ -71,6 +78,7 @@ func _apply_hotload(c: Dictionary) -> void:
 	else:
 		change_failed.emit(c, "hotload failed")
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func _apply_reparent(c: Dictionary) -> void:
 	var node := get_tree().root.get_node_or_null(str(c.get("node_path", "")))
 	var new_parent := get_tree().root.get_node_or_null(str(c.get("new_parent_path", "")))
@@ -82,6 +90,7 @@ func _apply_reparent(c: Dictionary) -> void:
 		LogCatcher.log("FORGE", "reparent_deferred", "%s -> %s" % [str(c.get("node_path", "")), str(c.get("new_parent_path", ""))])
 	change_applied.emit(c)
 
+# DNA: MUTATE_NODE | auto-tag v1.6
 func _apply_function_inject(c: Dictionary) -> void:
 	var script_id := str(c.get("script_id", ""))
 	if not ScriptRegistry.registry.has(script_id):
@@ -102,12 +111,14 @@ func _apply_function_inject(c: Dictionary) -> void:
 	ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_REPLACE)
 	change_applied.emit(c)
 
+# DNA: MUTATE_NODE | auto-tag v1.6
 func toggle_forge(active: bool) -> void:
 	forge_active = active
 	if Engine.has_singleton("LogCatcher"):
 		LogCatcher.log("FORGE", "toggled", str(active))
 	forge_toggled.emit(active)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _build_function(fn_json: Dictionary) -> String:
 	var name := str(fn_json.get("name", "generated_fn"))
 	return "func %s() -> void:\n\tpass\n" % name

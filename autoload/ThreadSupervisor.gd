@@ -3,6 +3,7 @@ extends Node
 var active_threads: Dictionary = {}
 var resource_locks: Dictionary = {}
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func spawn_thread(owner_script: String, callable: Callable) -> String:
 	var thread := Thread.new()
 	var thread_id := "%s_%d" % [owner_script, Time.get_unix_time_from_system()]
@@ -15,6 +16,7 @@ func spawn_thread(owner_script: String, callable: Callable) -> String:
 	thread.start(callable)
 	return thread_id
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func claim_resource(thread_id: String, resource_name: String) -> bool:
 	var owner := resource_locks.get(resource_name, "")
 	if owner == "" or owner == thread_id:
@@ -25,11 +27,13 @@ func claim_resource(thread_id: String, resource_name: String) -> bool:
 		LogCatcher.log("THREAD", "contention", "%s locked by %s" % [resource_name, owner], LogCatcher.Level.THREAD)
 	return false
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func release_resource(thread_id: String, resource_name: String) -> void:
 	if resource_locks.get(resource_name, "") == thread_id:
 		resource_locks[resource_name] = ""
 		(active_threads[thread_id]["locked_resources"] as Array).erase(resource_name)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func finish_thread(thread_id: String) -> void:
 	if not active_threads.has(thread_id):
 		return
@@ -41,10 +45,12 @@ func finish_thread(thread_id: String) -> void:
 		release_resource(thread_id, str(res))
 	active_threads.erase(thread_id)
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _process(_delta: float) -> void:
 	if int(Time.get_ticks_msec()) % 5000 < 17:
 		check_deadlock()
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func check_deadlock() -> void:
 	var now := Time.get_ticks_msec() / 1000.0
 	for thread_id in active_threads.keys():

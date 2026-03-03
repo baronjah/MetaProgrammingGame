@@ -8,6 +8,7 @@ var closed_by_doctor: bool = false
 @onready var override_dot: MeshInstance3D = $OverrideDot if has_node("OverrideDot") else MeshInstance3D.new()
 @onready var halo: MeshInstance3D = $CaptureHalo if has_node("CaptureHalo") else MeshInstance3D.new()
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _ready() -> void:
 	if ring.get_parent() == null:
 		ring.mesh = TorusMesh.new()
@@ -23,6 +24,7 @@ func _ready() -> void:
 	set_meta("interactive", true)
 	set_meta("script_id", valve_id)
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func update_visual(open_state: bool, throttle_ms: float, capture: bool, override_active: bool, active_version: String, doctor_closed: bool) -> void:
 	closed_by_doctor = doctor_closed
 	var color := Color(0.2, 1.0, 0.2)

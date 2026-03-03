@@ -5,9 +5,11 @@ const CATALOGUE_PATH := "res://data/project_catalogue.json"
 var projects: Dictionary = {}
 var active_comparisons: Array[String] = []
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _ready() -> void:
 	load_catalogue()
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func load_catalogue() -> void:
 	var file := FileAccess.open(CATALOGUE_PATH, FileAccess.READ)
 	if file == null:
@@ -17,6 +19,7 @@ func load_catalogue() -> void:
 	if typeof(parsed) == TYPE_DICTIONARY:
 		projects = parsed.get("projects", {})
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func register_project(disk_path: String) -> String:
 	var internal_id := "proj_%s_%d" % [_slugify(disk_path.get_file()), Time.get_unix_time_from_system()]
 	var impact_path := disk_path.path_join("first_impact/first_impact.json")
@@ -61,12 +64,14 @@ func register_project(disk_path: String) -> String:
 	save_catalogue()
 	return internal_id
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func update_custom(project_id: String, field: String, value: Variant) -> void:
 	if not projects.has(project_id):
 		return
 	projects[project_id][field] = value
 	save_catalogue()
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func find_duplicates() -> Array[Dictionary]:
 	var ids := projects.keys()
 	var pairs: Array[Dictionary] = []
@@ -79,6 +84,7 @@ func find_duplicates() -> Array[Dictionary]:
 				pairs.append({"a": ids[i], "b": ids[j], "similarity_score": score})
 	return pairs
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func assign_to_vessel(project_id: String, vessel_id: String) -> void:
 	if not projects.has(project_id):
 		return
@@ -87,6 +93,7 @@ func assign_to_vessel(project_id: String, vessel_id: String) -> void:
 	if Engine.has_singleton("VesselDomeManager"):
 		VesselDomeManager.project_assigned.emit(project_id, vessel_id)
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func get_projects_by_tag(tag: String) -> Array:
 	var out: Array = []
 	for project in projects.values():
@@ -94,18 +101,22 @@ func get_projects_by_tag(tag: String) -> Array:
 			out.append(project)
 	return out
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func get_unscanned() -> Array:
 	return projects.values().filter(func(p: Dictionary): return not bool(p.get("scanned", false)))
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func get_by_resurrection_status(status: String) -> Array:
 	return projects.values().filter(func(p: Dictionary): return str(p.get("resurrection_status", "")) == status)
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func save_catalogue() -> void:
 	var payload := {"projects": projects}
 	var file := FileAccess.open(CATALOGUE_PATH, FileAccess.WRITE)
 	if file != null:
 		file.store_string(JSON.stringify(payload, "\t"))
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _similarity(a: Dictionary, b: Dictionary) -> float:
 	var ah: Dictionary = a.get("health", {})
 	var bh: Dictionary = b.get("health", {})
@@ -117,5 +128,6 @@ func _similarity(a: Dictionary, b: Dictionary) -> float:
 		return 0.0
 	return min(sa, sb) / max(sa, sb)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _slugify(value: String) -> String:
 	return value.to_lower().replace(" ", "_").replace("-", "_")

@@ -1,6 +1,7 @@
 class_name CataloguePanel
 extends Node3D
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func refresh_catalogue() -> void:
 	for c in get_children():
 		c.queue_free()
@@ -25,12 +26,14 @@ func refresh_catalogue() -> void:
 		add_child(card)
 		index += 1
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func load_into_window(project_id: String, window: int) -> void:
 	if not ProjectCatalogue.projects.has(project_id):
 		return
 	var p: Dictionary = ProjectCatalogue.projects[project_id]
 	get_parent().navigate_to(window, str(p.get("disk_path", "res://")))
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _status_color(status: String) -> Color:
 	match status:
 		"in-progress":

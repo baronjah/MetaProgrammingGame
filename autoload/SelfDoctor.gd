@@ -13,6 +13,7 @@ signal repair_pending(issue: Dictionary)
 signal system_healthy()
 signal entering_safe_mode()
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _ready() -> void:
 	if Engine.has_singleton("ValveRegistry"):
 		ValveRegistry.any_valve_closed.connect(_on_any_valve_closed)
@@ -27,6 +28,7 @@ func _ready() -> void:
 	timer.timeout.connect(_run_diagnostics)
 	add_child(timer)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _run_diagnostics() -> void:
 	for script_id in ScriptRegistry.registry.keys():
 		var entry: Dictionary = ScriptRegistry.registry[script_id]
@@ -44,6 +46,7 @@ func _run_diagnostics() -> void:
 	if diagnosis_log.is_empty():
 		system_healthy.emit()
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _handle_issue(issue: Dictionary) -> void:
 	_log_issue(issue)
 	match mode:
@@ -55,10 +58,14 @@ func _handle_issue(issue: Dictionary) -> void:
 		Mode.AUTONOMOUS:
 			_apply_repair(issue)
 
+# DNA: MUTATE_NODE | auto-tag v1.6
 func _apply_repair(issue: Dictionary) -> void:
 	var issue_type := str(issue.get("type", ""))
+	var dna_type := str(issue.get("dna_type", ""))
 	match issue_type:
 		"valve_closed_by_fails":
+			if dna_type == "MUTATE_GLOBAL":
+				LiveForge.queue_change({"type":"law_flip","law":"time","to":"B"})
 			var valve := ValveRegistry.valves.get(str(issue.get("valve_id", "")), null)
 			if valve:
 				valve.select_version("B" if valve.active_version == "A" else "A")
@@ -68,10 +75,14 @@ func _apply_repair(issue: Dictionary) -> void:
 			LiveForge.queue_change({"type":"node_defer_ready","node_path":issue.get("node_path","")})
 			repair_applied.emit(str(issue.get("id", "")), "defer_ready")
 		"thread_deadlock":
+			if dna_type == "TREE_STRUCTURE":
+				FrameGovernor.queue_task(func() -> void: LiveForge.queue_change({"type":"node_defer_ready","node_path":issue.get("node_path","")}), "doctor_retry_tree", 2, 4)
 			if ThreadSupervisor.has_method("force_release_all"):
 				ThreadSupervisor.force_release_all(str(issue.get("thread_id", "")))
 			repair_applied.emit(str(issue.get("id", "")), "force_release")
 		"node_path_broken":
+			if dna_type == "WRITE_RESOURCE":
+				LiveForge.queue_change({"type":"connection_rewire","script_id":issue.get("script_id","")})
 			LiveForge.queue_change({"type":"connection_rewire","script_id":issue.get("script_id","")})
 			repair_applied.emit(str(issue.get("id", "")), "rewire")
 		"fps_critical":
@@ -82,6 +93,7 @@ func _apply_repair(issue: Dictionary) -> void:
 		_:
 			pass
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func confirm_repair(issue_id: String) -> void:
 	for issue in repair_queue:
 		if str(issue.get("id", "")) == issue_id:
@@ -89,6 +101,7 @@ func confirm_repair(issue_id: String) -> void:
 			repair_queue.erase(issue)
 			return
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func reject_repair(issue_id: String) -> void:
 	for issue in repair_queue:
 		if str(issue.get("id", "")) == issue_id:
@@ -96,6 +109,7 @@ func reject_repair(issue_id: String) -> void:
 			repair_queue.erase(issue)
 			return
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func soft_restart() -> void:
 	LogCatcher.log("DOCTOR", "soft_restart", "initiated")
 	entering_safe_mode.emit()
@@ -111,6 +125,7 @@ func soft_restart() -> void:
 	await get_tree().process_frame
 	_unfold_from_scriptura()
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _disable_all_scene_nodes() -> void:
 	var count := 0
 	for node in get_tree().root.get_children():
@@ -122,11 +137,13 @@ func _disable_all_scene_nodes() -> void:
 		count += 1
 	LogCatcher.log("DOCTOR", "scene_disabled", str(count))
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _disable_recursive(node: Node) -> void:
 	node.process_mode = Node.PROCESS_MODE_DISABLED
 	for child in node.get_children():
 		_disable_recursive(child)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _free_dynamic_nodes() -> void:
 	for script_id in ScriptRegistry.registry.keys():
 		var entry: Dictionary = ScriptRegistry.registry[script_id]
@@ -137,6 +154,7 @@ func _free_dynamic_nodes() -> void:
 			ScriptRegistry.registry[script_id] = entry
 	ScriptRegistry.save_registry()
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _unfold_from_scriptura() -> void:
 	Scriptura.load_scriptura()
 	ScriptRegistry.load_registry()
@@ -144,6 +162,7 @@ func _unfold_from_scriptura() -> void:
 	LogCatcher.log("DOCTOR", "soft_restart", "complete")
 	system_healthy.emit()
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _log_issue(issue: Dictionary) -> void:
 	var issue_id := "issue_%d" % Time.get_ticks_msec()
 	issue["id"] = issue_id
@@ -155,26 +174,33 @@ func _log_issue(issue: Dictionary) -> void:
 	issue_detected.emit(issue)
 	LogCatcher.warn("DOCTOR", JSON.stringify(issue))
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _is_live(script_id: String) -> bool:
 	for key in TreeWatcher.node_registry.keys():
 		if str((TreeWatcher.node_registry[key] as Dictionary).get("script_id", "")) == script_id:
 			return true
 	return false
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _on_any_valve_closed(valve_id: String, reason: String) -> void:
 	_handle_issue({"type":"valve_closed_by_fails","valve_id":valve_id,"reason":reason})
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _on_any_deviation(valve_id: String, expected: Variant, actual: Variant) -> void:
 	_handle_issue({"type":"valve_deviation","valve_id":valve_id,"expected":str(expected),"actual":str(actual)})
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _on_deadlock(thread_id: String) -> void:
 	_handle_issue({"type":"thread_deadlock","thread_id":thread_id})
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _on_node_removed(node: Node) -> void:
 	_handle_issue({"type":"weave_thread_broken","path":str(node.get_path())})
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _on_valve_fail_threshold(valve_id: String) -> void:
 	_handle_issue({"type":"valve_closed_by_fails","valve_id":valve_id})
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _on_valve_deviation(valve_id: String, expected: Variant, actual: Variant) -> void:
 	_handle_issue({"type":"valve_deviation","valve_id":valve_id,"expected":str(expected),"actual":str(actual)})

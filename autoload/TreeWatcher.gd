@@ -2,10 +2,12 @@ extends Node
 
 var node_registry: Dictionary = {}
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _ready() -> void:
 	get_tree().node_added.connect(_on_node_added)
 	get_tree().node_removed.connect(_on_node_removed)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _on_node_added(node: Node) -> void:
 	if node.has_meta("script_id"):
 		var key := str(node.get_path())
@@ -19,6 +21,7 @@ func _on_node_added(node: Node) -> void:
 	if Engine.has_singleton("LogCatcher"):
 		LogCatcher.log("TREE", "added", str(node.get_path()), LogCatcher.Level.TREE)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _on_node_removed(node: Node) -> void:
 	var key := str(node.get_path())
 	if node_registry.has(key):
@@ -31,6 +34,7 @@ func _on_node_removed(node: Node) -> void:
 	if Engine.has_singleton("LogCatcher"):
 		LogCatcher.log("TREE", "removed", key, LogCatcher.Level.TREE)
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func track_reparent(node: Node, old_path: NodePath, new_path: NodePath) -> void:
 	var old_key := str(old_path)
 	if node_registry.has(old_key):
@@ -40,6 +44,7 @@ func track_reparent(node: Node, old_path: NodePath, new_path: NodePath) -> void:
 	if Engine.has_singleton("LogCatcher"):
 		LogCatcher.log("TREE", "reparented", "%s -> %s" % [str(old_path), str(new_path)], LogCatcher.Level.TREE)
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func get_all_live_paths() -> Array[NodePath]:
 	var out: Array[NodePath] = []
 	for key in node_registry.keys():

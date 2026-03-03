@@ -1,6 +1,7 @@
 class_name ScriptInspector
 extends Node3D
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func inspect_script(path: String) -> void:
 	var file := FileAccess.open(path, FileAccess.READ)
 	if file == null:
@@ -14,8 +15,10 @@ func inspect_script(path: String) -> void:
 			break
 	$Label3D.text = "Script: %s\nClass: %s\nLines: %d" % [path, class_name, lines.size()]
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func register_to_script_registry(script_id: String, script_type: String, path: String, scene_path: Variant, node_path: Variant) -> void:
 	ScriptRegistry.register_script(script_id, script_type, path, scene_path, node_path)
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func add_to_function_db(function_id: String, entry: Dictionary) -> void:
 	Scriptura.register_function(function_id, entry)

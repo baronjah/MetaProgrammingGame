@@ -6,6 +6,7 @@ var vessel_id: String = ""
 var layers: Array[Node3D] = []
 var script_nodes: Dictionary = {}
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func load_project(pid: String, layer_color: Color) -> void:
 	project_id = pid
 	var root_path := _project_root(pid)
@@ -34,18 +35,21 @@ func load_project(pid: String, layer_color: Color) -> void:
 		layer.add_child(node)
 		script_nodes[script_id] = node
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func load_shared(project_ids: Array[String]) -> void:
 	for i in range(project_ids.size()):
 		var hue := float(i) / max(1.0, float(project_ids.size()))
 		load_project(project_ids[i], Color.from_hsv(hue, 0.7, 1.0))
 		layers[-1].position.y = float(i) * 0.2
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func show_law_state(laws: Dictionary) -> void:
 	var lines: Array[String] = []
 	for law in laws.keys():
 		lines.append("%s:%s" % [law, laws[law]])
 	$LawPanel/Label3D.text = " ".join(lines)
 
+# DNA: MUTATE_NODE | auto-tag v1.6
 func highlight_script(script_id: String) -> void:
 	if not script_nodes.has(script_id):
 		return
@@ -55,16 +59,19 @@ func highlight_script(script_id: String) -> void:
 	mat.emission = Color(1.0, 0.9, 0.2)
 	node.material_override = mat
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func get_script_world_position(script_id: String) -> Vector3:
 	if not script_nodes.has(script_id):
 		return global_position
 	return (script_nodes[script_id] as Node3D).global_position
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _project_root(pid: String) -> String:
 	if ProjectCatalogue.projects.has(pid):
 		return str((ProjectCatalogue.projects[pid] as Dictionary).get("disk_path", ""))
 	return ""
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _make_card(text: String, color: Color) -> MeshInstance3D:
 	var card := MeshInstance3D.new()
 	card.mesh = PlaneMesh.new()
@@ -77,6 +84,7 @@ func _make_card(text: String, color: Color) -> MeshInstance3D:
 	card.add_child(label)
 	return card
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _script_color(script_type: String) -> Color:
 	match script_type:
 		"autoload":

@@ -3,9 +3,11 @@ extends Node3D
 
 var filter_mode: String = "all"
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _process(_delta: float) -> void:
 	refresh_lines()
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func refresh_lines() -> void:
 	for c in get_children():
 		c.queue_free()
@@ -21,9 +23,11 @@ func refresh_lines() -> void:
 		add_child(label)
 		row += 1
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func set_filter(mode: String) -> void:
 	filter_mode = mode
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _match_filter(line: String) -> bool:
 	match filter_mode:
 		"warn_error": return line.find("[WARN") != -1 or line.find("[ERROR") != -1
@@ -31,6 +35,7 @@ func _match_filter(line: String) -> bool:
 		"func": return line.find("[FUNC") != -1
 		_: return true
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _line_color(line: String) -> Color:
 	if line.find("[DEBUG") != -1:
 		return Color(0.6, 0.6, 0.6)

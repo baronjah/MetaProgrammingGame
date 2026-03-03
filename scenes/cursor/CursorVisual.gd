@@ -7,6 +7,7 @@ extends Node3D
 
 var mode: String = "navigate"
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _process(_delta: float) -> void:
 	global_position = CursorEntity.world_position
 	normal_indicator.look_at(global_position + CursorEntity.hit_normal, Vector3.UP)
@@ -26,6 +27,7 @@ func _process(_delta: float) -> void:
 	mat.albedo_color = color
 	ring.material_override = mat
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func set_mode(next_mode: String) -> void:
 	mode = next_mode
 	CursorEntity.set_mode(next_mode)

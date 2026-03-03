@@ -22,6 +22,7 @@ signal drag_ended(payload: Dictionary, drop_target: Node3D)
 signal port_hovered(port: Node3D, script_id: String, port_type: String)
 signal port_clicked(port: Node3D, script_id: String, port_type: String)
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _process(_delta: float) -> void:
 	if camera == null:
 		camera = get_viewport().get_camera_3d()
@@ -48,6 +49,7 @@ func _process(_delta: float) -> void:
 		emit_signal("unhovered", previous)
 	emit_signal("cursor_moved", world_position)
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -70,12 +72,14 @@ func _input(event: InputEvent) -> void:
 		if not dragging:
 			begin_drag({"type": "generic", "script_id": hit_script_id})
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func begin_drag(payload: Dictionary) -> void:
 	dragging = true
 	drag_payload = payload
 	drag_origin = world_position
 	emit_signal("drag_started", payload, drag_origin)
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func get_world_ray() -> Dictionary:
 	var mouse_pos := get_viewport().get_mouse_position()
 	return {
@@ -83,8 +87,10 @@ func get_world_ray() -> Dictionary:
 		"direction": camera.project_ray_normal(mouse_pos),
 	}
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func set_camera(cam: Camera3D) -> void:
 	camera = cam
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func set_mode(next_mode: String) -> void:
 	mode = next_mode

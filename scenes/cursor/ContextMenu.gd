@@ -5,9 +5,11 @@ const ACTIONS_PATH := "res://data/context_actions.json"
 
 var action_map: Dictionary = {}
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _ready() -> void:
 	load_actions()
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func load_actions() -> void:
 	var file := FileAccess.open(ACTIONS_PATH, FileAccess.READ)
 	if file == null:
@@ -16,6 +18,7 @@ func load_actions() -> void:
 	var parsed := JSON.parse_string(file.get_as_text())
 	action_map = parsed if typeof(parsed) == TYPE_DICTIONARY else {}
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func show_for_target(target_type: String, world_pos: Vector3) -> void:
 	global_position = world_pos
 	for c in get_children():

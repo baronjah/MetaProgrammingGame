@@ -5,10 +5,12 @@ var window_a_path: String = "res://"
 var window_b_path: String = "res://"
 var active_window: int = 0
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _ready() -> void:
 	navigate_to(0, window_a_path)
 	navigate_to(1, window_b_path)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func navigate_to(window: int, path: String) -> void:
 	var current := path
 	var dir := DirAccess.open(current)
@@ -24,6 +26,7 @@ func navigate_to(window: int, path: String) -> void:
 	_update_path_label(window, path)
 	_rebuild_file_list(window, dir)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func select_entry(window: int, entry_name: String) -> void:
 	var base := window_a_path if window == 0 else window_b_path
 	var full := base.path_join(entry_name)
@@ -40,12 +43,14 @@ func select_entry(window: int, entry_name: String) -> void:
 		var _tree_preview_access := PathResolver.generate_access_snippet("ProjectBrowser", "NodeTreePreview")
 		$NodeTreePreview.preview_scene(full)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func trigger_bomb(window: int) -> void:
 	var target := window_a_path if window == 0 else window_b_path
 	var script := ProjectSettings.globalize_path("res://tools/data_bomb/bomb.py")
 	OS.execute("python", [script, "--path", ProjectSettings.globalize_path(target)], [])
 	_set_action_status(window, "Bomb complete")
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func compare_windows() -> void:
 	var a := _list_script_files(window_a_path)
 	var b := _list_script_files(window_b_path)
@@ -55,10 +60,12 @@ func compare_windows() -> void:
 			overlap.append(name)
 	$DiffPanel/Label3D.text = "Shared scripts: %s" % ", ".join(overlap)
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func open_second_window(path: String) -> void:
 	window_b_path = path
 	navigate_to(1, path)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _list_script_files(path: String) -> Dictionary:
 	var result := {}
 	var dir := DirAccess.open(ProjectSettings.globalize_path(path))
@@ -73,18 +80,21 @@ func _list_script_files(path: String) -> Dictionary:
 	dir.list_dir_end()
 	return result
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func _update_path_label(window: int, path: String) -> void:
 	var label_path := "BrowserWindow_A/PathBar/Label3D" if window == 0 else "BrowserWindow_B/PathBar/Label3D"
 	var label := get_node_or_null(label_path) as Label3D
 	if label:
 		label.text = path
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func _set_action_status(window: int, text: String) -> void:
 	var label_path := "BrowserWindow_A/ActionBar/Label3D" if window == 0 else "BrowserWindow_B/ActionBar/Label3D"
 	var label := get_node_or_null(label_path) as Label3D
 	if label:
 		label.text = text
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _rebuild_file_list(window: int, dir: DirAccess) -> void:
 	var parent_path := "BrowserWindow_A/FileList" if window == 0 else "BrowserWindow_B/FileList"
 	var parent := get_node_or_null(parent_path) as Node3D
@@ -112,6 +122,7 @@ func _rebuild_file_list(window: int, dir: DirAccess) -> void:
 		name = dir.get_next()
 	dir.list_dir_end()
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _entry_color(name: String, is_dir: bool) -> Color:
 	if is_dir:
 		return Color(1.0, 0.65, 0.2)
@@ -124,6 +135,7 @@ func _entry_color(name: String, is_dir: bool) -> Color:
 	return Color(0.6, 0.6, 0.6)
 
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func open_catalogue_mode() -> void:
 	var _catalogue_access := PathResolver.generate_access_snippet("ProjectBrowser", "CataloguePanel")
 	$CataloguePanel.refresh_catalogue()

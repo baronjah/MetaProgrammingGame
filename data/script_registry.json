@@ -516,5 +516,53 @@
     "shared_resources": [],
     "mutex_required": false,
     "thread_owner": null
+  },
+  "FunctionDNA": {
+    "type": "class_named",
+    "path": "res://systems/function_dna.gd",
+    "class_name": "FunctionDNA",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": true,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "PrimitiveFactory": {
+    "type": "class_named",
+    "path": "res://systems/primitive_factory.gd",
+    "class_name": "PrimitiveFactory",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": false,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "PrimitiveConnector": {
+    "type": "class_named",
+    "path": "res://systems/primitive_connector.gd",
+    "class_name": "PrimitiveConnector",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": false,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "ShapeWorkbench": {
+    "type": "scene_script",
+    "path": "res://scenes/workbench/ShapeWorkbench.gd",
+    "class_name": "ShapeWorkbench",
+    "scene_attachment": "res://scenes/workbench/ShapeWorkbench.tscn",
+    "node_path_in_scene": ".",
+    "loaded": false,
+    "thread_safe": false,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
   }
 }

@@ -13,10 +13,12 @@ var timeline_index: int = -1
 signal law_changed(law_name: String, new_state: String)
 signal function_snapped(func_id: String, direction: String)
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _ready() -> void:
 	load_scriptura()
 	load_function_db()
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func load_scriptura() -> void:
 	var parsed := _load_json_file(SCRIPTURA_PATH)
 	if typeof(parsed) != TYPE_DICTIONARY:
@@ -28,9 +30,11 @@ func load_scriptura() -> void:
 		var law_data: Dictionary = law_catalog[law_name]
 		current_laws[law_name] = str(law_data.get("state", "A"))
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func get_law(law_name: String) -> String:
 	return str(current_laws.get(law_name, "A"))
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func set_law(law_name: String, state: String, log_event: bool = true) -> void:
 	if state != "A" and state != "B":
 		return
@@ -42,6 +46,7 @@ func set_law(law_name: String, state: String, log_event: bool = true) -> void:
 		push_message("[LAW:%s=%s]" % [law_name, state], "Scriptura")
 	law_changed.emit(law_name, state)
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func load_function_db() -> void:
 	var parsed := _load_json_file(FUNCTION_DB_PATH)
 	if typeof(parsed) != TYPE_DICTIONARY:
@@ -49,6 +54,7 @@ func load_function_db() -> void:
 		return
 	function_db = parsed
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func register_function(func_id: String, meta: Dictionary) -> void:
 	if not meta.has("logic_A"):
 		meta["logic_A"] = "noop_A"
@@ -59,6 +65,7 @@ func register_function(func_id: String, meta: Dictionary) -> void:
 	function_db[func_id] = meta
 	save_function_db()
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func snap_function(func_id: String) -> String:
 	if not function_db.has(func_id):
 		push_message("Unknown function token: %s" % func_id, "Scriptura")
@@ -75,6 +82,7 @@ func snap_function(func_id: String) -> String:
 	function_snapped.emit(func_id, direction)
 	return str(meta.get(direction == "A" ? "logic_A" : "logic_B", ""))
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func push_message(content: String, source: String) -> void:
 	message_log.append({
 		"content": content,
@@ -89,6 +97,7 @@ func push_message(content: String, source: String) -> void:
 		set_law(str(law_change["law"]), str(law_change["state"]), false)
 	timeline_index = -1
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func rewind_to(index: int) -> void:
 	if index < 0 or index >= message_log.size():
 		return
@@ -101,6 +110,7 @@ func rewind_to(index: int) -> void:
 		for token in parse_for_tokens(content):
 			snap_function(token)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func parse_for_tokens(message: String) -> Array:
 	var tokens: Array = []
 	var is_reading := false
@@ -121,6 +131,7 @@ func parse_for_tokens(message: String) -> Array:
 			buffer += ch
 	return tokens
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func save_scriptura() -> void:
 	var payload := {
 		"version": "1.0",
@@ -131,11 +142,13 @@ func save_scriptura() -> void:
 	if file != null:
 		file.store_string(JSON.stringify(payload, "\t"))
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func save_function_db() -> void:
 	var file := FileAccess.open(FUNCTION_DB_PATH, FileAccess.WRITE)
 	if file != null:
 		file.store_string(JSON.stringify(function_db, "\t"))
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func _load_json_file(path: String) -> Variant:
 	var file := FileAccess.open(path, FileAccess.READ)
 	if file == null:
@@ -143,6 +156,7 @@ func _load_json_file(path: String) -> Variant:
 		return {}
 	return JSON.parse_string(file.get_as_text())
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _parse_law_changes(message: String) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
 	for token in _parse_raw_brackets(message):
@@ -155,6 +169,7 @@ func _parse_law_changes(message: String) -> Array[Dictionary]:
 					result.append({"law": law_name, "state": state})
 	return result
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _parse_raw_brackets(message: String) -> Array[String]:
 	var result: Array[String] = []
 	var is_reading := false

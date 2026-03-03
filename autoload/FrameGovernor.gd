@@ -16,6 +16,7 @@ signal frame_underrun(spare_ms: float)
 signal queue_flooded(priority: int, count: int)
 signal task_dropped(task: Dictionary, reason: String)
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func set_target_fps(fps: float) -> void:
 	target_fps = clamp(fps, 5.0, 240.0)
 	budget_ms = 1000.0 / target_fps
@@ -23,6 +24,7 @@ func set_target_fps(fps: float) -> void:
 	LogCatcher.log("GOVERNOR", "fps_target", str(target_fps))
 	fps_target_changed.emit(target_fps)
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func set_mode(mode: String) -> void:
 	performance_mode = mode
 	match mode:
@@ -34,6 +36,7 @@ func set_mode(mode: String) -> void:
 		SelfDoctor._handle_issue({"type":"fps_mode_changed","mode":mode})
 	LogCatcher.log("GOVERNOR", "mode_change", mode)
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func queue_task(callable: Callable, label: String, priority: int = 2, max_age: int = 10) -> void:
 	var p := clamp(priority, 0, 4)
 	queues[p].append({"callable": callable, "label": label, "priority": p, "max_age_frames": max_age, "age": 0})
@@ -45,6 +48,7 @@ func queue_task(callable: Callable, label: String, priority: int = 2, max_age: i
 				oldest["priority"] = p - 1
 				queues[p - 1].append(oldest)
 
+# DNA: QUERY_NODE | auto-tag v1.6
 func _process(_delta: float) -> void:
 	var frame_start := Time.get_ticks_usec()
 	var budget_us := budget_ms * 1000.0
@@ -78,9 +82,11 @@ func _process(_delta: float) -> void:
 		frame_underrun_count += 1
 		frame_underrun.emit(budget_ms - last_frame_ms)
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func get_queue_depths() -> Array[int]:
 	return [queues[0].size(), queues[1].size(), queues[2].size(), queues[3].size(), queues[4].size()]
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func flush_priority(p: int) -> void:
 	if p < 0 or p > 4:
 		return

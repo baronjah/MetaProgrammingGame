@@ -1,5 +1,6 @@
 extends Node
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func resolve(from_script_id: String, to_script_id: String) -> Dictionary:
 	if not ScriptRegistry.registry.has(from_script_id) or not ScriptRegistry.registry.has(to_script_id):
 		return _result("unknown", "", true, null)
@@ -30,6 +31,7 @@ func resolve(from_script_id: String, to_script_id: String) -> Dictionary:
 		}
 	return _result("root_climb", "/root", true, null)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func build_node_path(from_node_path: String, to_node_path: String, _scene_root: String) -> String:
 	if from_node_path == to_node_path:
 		return "."
@@ -47,6 +49,7 @@ func build_node_path(from_node_path: String, to_node_path: String, _scene_root: 
 	var joined := up + down
 	return "." if joined.is_empty() else "/".join(joined)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func generate_access_snippet(from_id: String, to_id: String) -> String:
 	var resolved := resolve(from_id, to_id)
 	var strategy := str(resolved.get("strategy", ""))
@@ -56,6 +59,7 @@ func generate_access_snippet(from_id: String, to_id: String) -> String:
 		return str(resolved.get("code_snippet", ""))
 	return "var target = get_node('%s')" % str(resolved.get("path_string", ""))
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _scene_node_anchor(scene_path: Variant, node_path: String) -> String:
 	var scene_name := "UnknownScene"
 	if scene_path != null:
@@ -64,6 +68,7 @@ func _scene_node_anchor(scene_path: Variant, node_path: String) -> String:
 		return "/%s" % scene_name
 	return "/%s/%s" % [scene_name, node_path]
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _split_path(path: String) -> Array[String]:
 	if path == "." or path == "":
 		return []
@@ -73,6 +78,7 @@ func _split_path(path: String) -> Array[String]:
 			out.append(piece)
 	return out
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _result(strategy: String, path_string: String, needs_scene_load: bool, target_scene: Variant) -> Dictionary:
 	return {
 		"strategy": strategy,

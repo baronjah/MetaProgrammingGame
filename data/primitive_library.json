@@ -1,0 +1,46 @@
+{
+  "primitives": {
+    "slab": {
+      "id": "slab",
+      "mesh_class": "BoxMesh",
+      "default_size": [1.0, 0.1, 1.0],
+      "purpose": "flat panel, floor, wall",
+      "future_use": ["creature_body_segment", "limb_flat", "ui_panel"]
+    },
+    "rod": {
+      "id": "rod",
+      "mesh_class": "CylinderMesh",
+      "default_size": [0.1, 1.0, 0.1],
+      "purpose": "bone, strut, limb shaft",
+      "future_use": ["bone", "limb_shaft", "spine_segment"]
+    },
+    "orb": {
+      "id": "orb",
+      "mesh_class": "SphereMesh",
+      "default_size": [0.5, 0.5, 0.5],
+      "purpose": "joint, head, eye, sensor",
+      "future_use": ["joint", "eye", "sensor_node", "head"]
+    },
+    "wedge": {
+      "id": "wedge",
+      "mesh_class": "PrismMesh",
+      "default_size": [1.0, 1.0, 1.0],
+      "purpose": "directional indicator, fin, blade",
+      "future_use": ["fin", "claw", "directional_limb"]
+    },
+    "ring": {
+      "id": "ring",
+      "mesh_class": "TorusMesh",
+      "default_size": [0.5, 0.1],
+      "purpose": "joint socket, orbit indicator, valve visual",
+      "future_use": ["joint_socket", "creature_ring_segment"]
+    },
+    "path_node": {
+      "id": "path_node",
+      "mesh_class": "SphereMesh",
+      "default_size": [0.15, 0.15, 0.15],
+      "purpose": "spline control point, path anchor",
+      "future_use": ["spline_handle", "creature_spine_point", "animation_keyframe_point"]
+    }
+  }
+}

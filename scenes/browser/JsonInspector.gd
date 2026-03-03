@@ -1,6 +1,7 @@
 class_name JsonInspector
 extends Node3D
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func inspect_json(path: String) -> void:
 	var file := FileAccess.open(path, FileAccess.READ)
 	if file == null:
@@ -18,5 +19,6 @@ func inspect_json(path: String) -> void:
 	else:
 		$Label3D.text = "Top keys: %s" % ", ".join(parsed.keys())
 
+# DNA: MUTATE_NODE | auto-tag v1.6
 func toggle_law(law_name: String, next_state: String) -> void:
 	Scriptura.set_law(law_name, next_state)

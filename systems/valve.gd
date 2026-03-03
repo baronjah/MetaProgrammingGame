@@ -30,6 +30,7 @@ signal data_blocked(valve_id: String, args: Array, reason: String)
 signal fail_threshold_reached(valve_id: String)
 signal deviation_detected(valve_id: String, expected: Variant, actual: Variant)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func pass_through(args: Array, destination_callable: Callable) -> Variant:
 	LogCatcher.catch_input(from_function + "→" + to_function, args)
 	if not open:
@@ -54,6 +55,7 @@ func pass_through(args: Array, destination_callable: Callable) -> Variant:
 	consecutive_fails = 0
 	return result
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func report_fail(reason: String) -> void:
 	fail_count += 1
 	consecutive_fails += 1
@@ -62,25 +64,30 @@ func report_fail(reason: String) -> void:
 		open = false
 		fail_threshold_reached.emit(valve_id)
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func set_throttle(ms: float) -> void:
 	throttle_ms = max(ms, 0.0)
 	LogCatcher.log("VALVE", valve_id, "throttle set to %sms" % throttle_ms)
 
+# DNA: TREE_STRUCTURE | auto-tag v1.6
 func open_valve() -> void:
 	open = true
 	consecutive_fails = 0
 	valve_opened.emit(valve_id)
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func close_valve(reason: String) -> void:
 	open = false
 	valve_closed.emit(valve_id, reason)
 
+# DNA: MUTATE_GLOBAL | auto-tag v1.6
 func save_baseline() -> void:
 	if capture_log.is_empty():
 		return
 	capture_baseline = capture_log[-1].duplicate(true)
 	LogCatcher.log("VALVE", valve_id, "baseline saved")
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _capture_entry(args: Array, result: Variant) -> void:
 	capture_log.append({
 		"time": Time.get_ticks_msec(),
@@ -90,6 +97,7 @@ func _capture_entry(args: Array, result: Variant) -> void:
 	if capture_log.size() > 100:
 		capture_log.pop_front()
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func _compare_to_baseline(args: Array, result: Variant) -> void:
 	var baseline_args := str(capture_baseline.get("args", ""))
 	var baseline_result := str(capture_baseline.get("result", ""))
@@ -98,6 +106,7 @@ func _compare_to_baseline(args: Array, result: Variant) -> void:
 		deviation_detected.emit(valve_id, baseline_result, result)
 		LogCatcher.warn("VALVE", "%s deviation: expected=%s actual=%s" % [valve_id, baseline_result, str(result)])
 
+# DNA: RETURN_VALUE | auto-tag v1.6
 func select_version(ver: String) -> void:
 	if ver != "A" and ver != "B":
 		return
