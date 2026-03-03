@@ -388,6 +388,70 @@ def run_scan(root: Path) -> None:
     (out / "first_impact.json").write_text(json.dumps(first_impact, indent=2) + "\n", encoding="utf-8")
     (out / "resurrection_plan.json").write_text(json.dumps(plan, indent=2) + "\n", encoding="utf-8")
     (out / "SCAVENGE_NOTES.md").write_text(scavenge_notes(root, state, plan), encoding="utf-8")
+    _attach_history_timeline(root)
+
+
+def _attach_history_timeline(root: Path) -> None:
+    history = _load_history_timeline(root)
+    catalogue_path = root / "data" / "project_catalogue.json"
+    if not catalogue_path.exists():
+        return
+    catalogue = json.loads(safe_read(catalogue_path))
+    projects = catalogue.setdefault("projects", {})
+    internal_id = f"proj_{root.name.lower().replace(' ', '_')}"
+    if internal_id not in projects:
+        projects[internal_id] = {
+            "internal_id": internal_id,
+            "display_name": root.name,
+            "disk_path": str(root),
+            "resurrection_status": "scanned",
+            "tags": ["data_bomb"],
+            "vessel_assignment": None,
+        }
+    projects[internal_id]["history_timeline"] = history
+    catalogue_path.write_text(json.dumps(catalogue, indent=2) + "\n", encoding="utf-8")
+
+
+def _load_history_timeline(root: Path) -> dict[str, Any]:
+    history_candidates = [
+        root / "user" / "timeline_history.json",
+        root / "timeline_history.json",
+    ]
+    for hp in history_candidates:
+        if hp.exists():
+            loaded = json.loads(safe_read(hp))
+            if isinstance(loaded, dict):
+                return loaded
+    snapshot = {
+        "project": root.name,
+        "detected_at": datetime.now(timezone.utc).isoformat(),
+        "scriptura": {},
+    }
+    scriptura_path = root / "data" / "scriptura.json"
+    if scriptura_path.exists():
+        loaded = json.loads(safe_read(scriptura_path))
+        if isinstance(loaded, dict):
+            snapshot["scriptura"] = loaded
+    return {
+        "timeline_id": "project_history",
+        "target_type": "project_version",
+        "target_id": "project_state",
+        "duration": 0.0,
+        "loop": False,
+        "playback_speed": 1.0,
+        "keyframes": [
+            {
+                "time": 0.0,
+                "value": snapshot,
+                "value_type": 6,
+                "easing_in": 7,
+                "easing_out": 7,
+                "label": "data_bomb_stub",
+                "source": "data_bomb",
+                "tags": ["import_stub"],
+            }
+        ],
+    }
 
 
 def main() -> None:

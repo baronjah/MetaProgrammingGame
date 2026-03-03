@@ -638,5 +638,87 @@
     "shared_resources": [],
     "mutex_required": false,
     "thread_owner": null
+  },
+  "TimelineManager": {
+    "type": "autoload",
+    "path": "res://autoload/TimelineManager.gd",
+    "class_name": "TimelineManager",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": true,
+    "thread_safe": false,
+    "shared_resources": [
+      "Scriptura.current_laws",
+      "project_history"
+    ],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "LawInterpolator": {
+    "type": "class_named",
+    "path": "res://systems/law_interpolator.gd",
+    "class_name": "LawInterpolator",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": true,
+    "shared_resources": [
+      "Scriptura.current_laws"
+    ],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "Easing": {
+    "type": "class_named",
+    "path": "res://systems/easing.gd",
+    "class_name": "Easing",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": true,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "Keyframe": {
+    "type": "class_named",
+    "path": "res://systems/keyframe.gd",
+    "class_name": "Keyframe",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": true,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "Timeline": {
+    "type": "class_named",
+    "path": "res://systems/timeline.gd",
+    "class_name": "Timeline",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": false,
+    "shared_resources": [
+      "TreeWatcher.node_registry",
+      "Scriptura.current_laws"
+    ],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "TimelinePanel": {
+    "type": "scene_script",
+    "path": "res://scenes/timeline/TimelinePanel.gd",
+    "class_name": "TimelinePanel",
+    "scene_attachment": null,
+    "node_path_in_scene": ".",
+    "loaded": false,
+    "thread_safe": false,
+    "shared_resources": [
+      "TimelineManager.timelines"
+    ],
+    "mutex_required": false,
+    "thread_owner": null
   }
 }

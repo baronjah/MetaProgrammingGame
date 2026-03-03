@@ -7,7 +7,11 @@
       "color": "#FFFFFF",
       "description": "Autoloads, Scriptura, core laws",
       "visible": true,
-      "dna_types_here": ["MUTATE_GLOBAL", "QUERY_GLOBAL", "MUTATE_GLOBAL"]
+      "dna_types_here": [
+        "MUTATE_GLOBAL",
+        "QUERY_GLOBAL",
+        "MUTATE_GLOBAL"
+      ]
     },
     "1": {
       "id": 1,
@@ -16,7 +20,11 @@
       "color": "#88CCFF",
       "description": "Class-named systems, duality pairs",
       "visible": true,
-      "dna_types_here": ["RETURN_VALUE", "MUTATE_NODE", "QUERY_NODE"]
+      "dna_types_here": [
+        "RETURN_VALUE",
+        "MUTATE_NODE",
+        "QUERY_NODE"
+      ]
     },
     "2": {
       "id": 2,
@@ -25,7 +33,10 @@
       "color": "#FFFF88",
       "description": "Scene scripts, node behaviors",
       "visible": true,
-      "dna_types_here": ["TREE_STRUCTURE", "MUTATE_NODE"]
+      "dna_types_here": [
+        "TREE_STRUCTURE",
+        "MUTATE_NODE"
+      ]
     },
     "3": {
       "id": 3,
@@ -34,16 +45,56 @@
       "color": "#FF88FF",
       "description": "File operations, external communication",
       "visible": true,
-      "dna_types_here": ["CREATE_FILE", "READ_FILE", "WRITE_RESOURCE"]
+      "dna_types_here": [
+        "CREATE_FILE",
+        "READ_FILE",
+        "WRITE_RESOURCE"
+      ]
     },
     "4": {
       "id": 4,
       "name": "Routers",
       "z_offset": 6.0,
       "color": "#FF8844",
-      "description": "All routers and logic gates — between systems and scene",
+      "description": "All routers and logic gates \u2014 between systems and scene",
       "visible": true,
       "dna_types_here": []
+    },
+    "5": {
+      "id": 5,
+      "name": "Goals",
+      "z_offset": 16.0,
+      "color": "#44FF88",
+      "description": "Creature decision-making, target selection",
+      "visible": false,
+      "dna_types_here": [
+        "QUERY_GLOBAL",
+        "RETURN_VALUE"
+      ]
+    },
+    "6": {
+      "id": 6,
+      "name": "Memory",
+      "z_offset": 20.0,
+      "color": "#88FF44",
+      "description": "Creature remembered states, past positions, reactions",
+      "visible": false,
+      "dna_types_here": [
+        "WRITE_RESOURCE",
+        "COPY_GLOBAL"
+      ]
+    },
+    "7": {
+      "id": 7,
+      "name": "Body",
+      "z_offset": 24.0,
+      "color": "#FFAA44",
+      "description": "Creature physical structure, primitive connections, animation poses",
+      "visible": false,
+      "dna_types_here": [
+        "MUTATE_NODE",
+        "TREE_STRUCTURE"
+      ]
     }
   }
 }
