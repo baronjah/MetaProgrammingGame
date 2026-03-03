@@ -22,6 +22,7 @@ var capture_baseline: Dictionary = {}
 
 var active_version: String = "A"
 var version_override: bool = false
+var relay_mode: String = "NC"
 
 signal valve_opened(valve_id: String)
 signal valve_closed(valve_id: String, reason: String)
@@ -33,6 +34,10 @@ signal deviation_detected(valve_id: String, expected: Variant, actual: Variant)
 # DNA: RETURN_VALUE | auto-tag v1.6
 func pass_through(args: Array, destination_callable: Callable) -> Variant:
 	LogCatcher.catch_input(from_function + "→" + to_function, args)
+	if relay_mode == "NO" and not open:
+		data_blocked.emit(valve_id, args, "relay_no")
+		LogCatcher.log("VALVE", valve_id, "blocked — relay is NO and closed", LogCatcher.Level.WARN)
+		return null
 	if not open:
 		data_blocked.emit(valve_id, args, "valve_closed")
 		LogCatcher.log("VALVE", valve_id, "blocked — valve is closed", LogCatcher.Level.WARN)

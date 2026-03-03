@@ -29,6 +29,21 @@
       "state": "A",
       "A": "rigid",
       "B": "pass-through"
+    },
+    "shape_mode": {
+      "state": "A",
+      "A": "flat_2d",
+      "B": "thick_3d"
+    },
+    "gen_method": {
+      "state": "A",
+      "A": "marching_cubes",
+      "B": "sdf"
+    },
+    "camera_mode": {
+      "state": "A",
+      "A": "perspective",
+      "B": "orthographic"
     }
   }
 }

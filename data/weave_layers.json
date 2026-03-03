@@ -1,0 +1,49 @@
+{
+  "layers": {
+    "0": {
+      "id": 0,
+      "name": "Foundation",
+      "z_offset": 0.0,
+      "color": "#FFFFFF",
+      "description": "Autoloads, Scriptura, core laws",
+      "visible": true,
+      "dna_types_here": ["MUTATE_GLOBAL", "QUERY_GLOBAL", "MUTATE_GLOBAL"]
+    },
+    "1": {
+      "id": 1,
+      "name": "Systems",
+      "z_offset": 4.0,
+      "color": "#88CCFF",
+      "description": "Class-named systems, duality pairs",
+      "visible": true,
+      "dna_types_here": ["RETURN_VALUE", "MUTATE_NODE", "QUERY_NODE"]
+    },
+    "2": {
+      "id": 2,
+      "name": "Scene",
+      "z_offset": 8.0,
+      "color": "#FFFF88",
+      "description": "Scene scripts, node behaviors",
+      "visible": true,
+      "dna_types_here": ["TREE_STRUCTURE", "MUTATE_NODE"]
+    },
+    "3": {
+      "id": 3,
+      "name": "IO",
+      "z_offset": 12.0,
+      "color": "#FF88FF",
+      "description": "File operations, external communication",
+      "visible": true,
+      "dna_types_here": ["CREATE_FILE", "READ_FILE", "WRITE_RESOURCE"]
+    },
+    "4": {
+      "id": 4,
+      "name": "Routers",
+      "z_offset": 6.0,
+      "color": "#FF8844",
+      "description": "All routers and logic gates — between systems and scene",
+      "visible": true,
+      "dna_types_here": []
+    }
+  }
+}

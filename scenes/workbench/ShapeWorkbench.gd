@@ -4,6 +4,7 @@ extends LifecycleHarness
 var selected: Array[MeshInstance3D] = []
 var connector_mode: bool = false
 var pending_connector: MeshInstance3D = null
+var shape_router: Router = null
 
 @onready var factory: PrimitiveFactory = $PrimitiveFactory
 @onready var connector_root: Node3D = $PrimitiveConnector_Root
@@ -11,6 +12,7 @@ var pending_connector: MeshInstance3D = null
 # DNA: TREE_STRUCTURE | initializes workbench bindings
 func on_ready() -> void:
 	factory.load_library()
+	_setup_router()
 	CursorEntity.clicked.connect(_on_cursor_clicked)
 	CursorEntity.drag_ended.connect(_on_drag_ended)
 	_build_toolbar()
@@ -65,7 +67,10 @@ func move_selected(new_pos: Vector3) -> void:
 
 # DNA: TREE_STRUCTURE | spawn primitive through factory
 func spawn_at(primitive_id: String, pos: Vector3) -> void:
-	factory.create(primitive_id, self, pos)
+	if shape_router != null:
+		shape_router.route([primitive_id, pos, Vector3(1,1,1)])
+	else:
+		factory.create(primitive_id, self, pos)
 
 # DNA: MUTATE_GLOBAL | enters connector mode + cursor mode
 func enter_connector_mode() -> void:
@@ -115,3 +120,12 @@ func _show_transform_handles(node: MeshInstance3D) -> void:
 		var orb := factory.create("orb", $Selection, node.global_position + off)
 		if orb:
 			orb.scale = Vector3.ONE * 0.15
+
+
+# DNA: TREE_STRUCTURE | creates shape generator router and outputs
+func _setup_router() -> void:
+	if not Engine.has_singleton("RouterRegistry"):
+		return
+	shape_router = RouterRegistry.create_router("ShapeWorkbench", "spawn_at", "NC", "law")
+	RouterRegistry.add_output_to_router(shape_router.router_id, "FlatShapeGen", "generate", "Flat 2D", "shape_mode", "A")
+	RouterRegistry.add_output_to_router(shape_router.router_id, "ThickShapeGen", "generate", "3D Thick", "shape_mode", "B")

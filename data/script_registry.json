@@ -564,5 +564,79 @@
     "shared_resources": [],
     "mutex_required": false,
     "thread_owner": null
+  },
+  "RouterRegistry": {
+    "type": "autoload",
+    "path": "res://autoload/RouterRegistry.gd",
+    "class_name": "RouterRegistry",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": true,
+    "thread_safe": false,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null,
+    "weave_layer": 4,
+    "layer_override_reason": "Router control lives on dedicated router layer"
+  },
+  "Router": {
+    "type": "class_named",
+    "path": "res://systems/router.gd",
+    "class_name": "Router",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": false,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "RouterNode": {
+    "type": "scene_script",
+    "path": "res://scenes/weave/RouterNode.gd",
+    "class_name": "RouterNode",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": false,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "LogicGate": {
+    "type": "class_named",
+    "path": "res://systems/logic_gate.gd",
+    "class_name": "LogicGate",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": false,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "FlatShapeGen": {
+    "type": "class_named",
+    "path": "res://systems/flat_shape_gen.gd",
+    "class_name": "FlatShapeGen",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": false,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
+  },
+  "ThickShapeGen": {
+    "type": "class_named",
+    "path": "res://systems/thick_shape_gen.gd",
+    "class_name": "ThickShapeGen",
+    "scene_attachment": null,
+    "node_path_in_scene": null,
+    "loaded": false,
+    "thread_safe": false,
+    "shared_resources": [],
+    "mutex_required": false,
+    "thread_owner": null
   }
 }
